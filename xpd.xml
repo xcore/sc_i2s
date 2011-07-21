@@ -13,6 +13,7 @@
     <location>git@github.com:xcore/sc_i2s</location>
     <name>sc_i2s</name>
     <maintainer>davelxmos</maintainer>
+    <release parenthash = "7e3418fcb3ba55e96181913f28b412775cfa5937" version = "1.2.0beta0"></release>
     <scope>example</scope>
     <vendor>XMOS</vendor>
     <xpd_version>1.0</xpd_version>
