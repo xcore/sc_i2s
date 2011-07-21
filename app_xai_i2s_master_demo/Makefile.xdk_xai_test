@@ -1,0 +1,17 @@
+TARGET = XDK
+BASE_DIR = ../../..
+
+SOURCE_DIRS += master_fullduplex/demo master_fullduplex/iis
+
+INCLUDE_DIRS += master_fullduplex/demo master_fullduplex/iis
+
+XCC_FLAGS += -Wall -O2 -DNUM_IN=3 -DNUM_OUT=4
+
+EXCLUDE_FILES = xc6_test.xc
+
+include $(BASE_DIR)/build/common/Makefile.common
+
+all: $(BIN_DIR)/xdk_xai_master_fullduplex_demo.xe 
+
+clean: clean_common
+	echo @cleaned
