@@ -1,0 +1,19 @@
+<?xml version="1.0" ?>
+<xpd>
+    <dependency repo = "sc_i2c">
+        <githash>045a0e4d4a19484016300c1f635258b5d11dce0f</githash>
+        <uri>ssh://git@github.com/xcore/sc_i2c</uri>
+        <version>2.0.0beta0</version>
+    </dependency>
+    <dependency repo = "xcommon">
+        <githash>fd0a7bd1dd56741e00f418b0fe9ff50e4231ed76</githash>
+        <uri>ssh://git@github.com/xcore/xcommon</uri>
+    </dependency>
+    <description>I2S Digital Audio Component</description>
+    <location>git@github.com:xcore/sc_i2s</location>
+    <name>sc_i2s</name>
+    <maintainer>davelxmos</maintainer>
+    <scope>example</scope>
+    <vendor>XMOS</vendor>
+    <xpd_version>1.0</xpd_version>
+</xpd>
