@@ -1,0 +1,7 @@
+Documentation
+-------------
+
+.. toctree::
+
+   summary.rst
+
