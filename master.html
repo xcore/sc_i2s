@@ -62,8 +62,10 @@ document.getElementById('d1').style.height=h2 + "px";
   <div class="section" id="i2s-master">
 <h1>I2S Master<a class="headerlink" href="#i2s-master" title="Permalink to this headline">¶</a></h1>
 <p>The I2S master module ...</p>
+<div class="section" id="api">
+<h2>API<a class="headerlink" href="#api" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="symbolic-constants">
-<h2>Symbolic constants<a class="headerlink" href="#symbolic-constants" title="Permalink to this headline">¶</a></h2>
+<h3>Symbolic constants<a class="headerlink" href="#symbolic-constants" title="Permalink to this headline">¶</a></h3>
 <dl class="macro">
 <dt id="I2S_MASTER_NUM_IN">
 <tt class="descname">I2S_MASTER_NUM_IN</tt><a class="headerlink" href="#I2S_MASTER_NUM_IN" title="Permalink to this definition">¶</a></dt>
@@ -79,12 +81,13 @@ document.getElementById('d1').style.height=h2 + "px";
 <dl class="macro">
 <dt id="MCK_BCK_RATIO">
 <tt class="descname">MCK_BCK_RATIO</tt><a class="headerlink" href="#MCK_BCK_RATIO" title="Permalink to this definition">¶</a></dt>
-<dd><p>BCK is soft divided off MCK MCK frequency is MCK_BCK_RATIO times BCK frequency.</p>
+<dd><p>BCK is soft divided off MCK.</p>
+<p>MCK frequency is MCK_BCK_RATIO times BCK frequency.</p>
 </dd></dl>
 
 </div>
 <div class="section" id="structures">
-<h2>Structures<a class="headerlink" href="#structures" title="Permalink to this headline">¶</a></h2>
+<h3>Structures<a class="headerlink" href="#structures" title="Permalink to this headline">¶</a></h3>
 <dl class="type">
 <dt id="i2s_master">
 <tt class="descname">i2s_master</tt><a class="headerlink" href="#i2s_master" title="Permalink to this definition">¶</a></dt>
@@ -123,20 +126,20 @@ out buffered port:32 <tt class="descname">wck</tt><a class="headerlink" href="#i
 <dl class="member">
 <dt id="i2s_master.din">
 in buffered port:32 <tt class="descname">din</tt><a class="headerlink" href="#i2s_master.din" title="Permalink to this definition">¶</a></dt>
-<dd><p>Input data port(s).</p>
+<dd><p>Array of 1-bit ports for audio input.</p>
 </dd></dl>
 
 <dl class="member">
 <dt id="i2s_master.dout">
 out buffered port:32 <tt class="descname">dout</tt><a class="headerlink" href="#i2s_master.dout" title="Permalink to this definition">¶</a></dt>
-<dd><p>Output data port(s).</p>
+<dd><p>Array of 1-bit ports for audio output.</p>
 </dd></dl>
 
 </dd></dl>
 
 </div>
-<div class="section" id="api">
-<h2>API<a class="headerlink" href="#api" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="functions">
+<h3>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h3>
 <dl class="function">
 <dt>
 void <tt class="descname">i2s_master</tt><big>(</big>struct <a class="reference internal" href="#i2s_master" title="i2s_master"><span>i2s_master</span></a><em>&nbsp;&amp;r_i2s</em>, streaming chanend<em>&nbsp;c_in</em>, streaming chanend<em>&nbsp;c_out</em><big>)</big></dt>
@@ -157,6 +160,7 @@ void <tt class="descname">i2s_master</tt><big>(</big>struct <a class="reference 
 </table>
 </dd></dl>
 
+</div>
 </div>
 <div class="section" id="example">
 <h2>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
@@ -208,16 +212,16 @@ on stdcore[1] : struct i2s_master r_i2s =
             }
          }
       }
-    on stdcore[0] : loopback(c_in, c_out);
-    //on stdcore[0] : input_test(c_in, c_out);
+      on stdcore[0] : loopback(c_in, c_out);
+      //on stdcore[0] : input_test(c_in, c_out);
 #ifdef SIM
-    on stdcore[3] : {
-      // generate 25MHz MCK
-      set_clock_div(b_mck_sim, 2);
-      set_port_clock(p_mck_sim, b_mck_sim);
-      set_port_mode_clock(p_mck_sim);
-      start_clock(b_mck_sim);
-    }
+      on stdcore[3] : {
+         // generate 25MHz MCK
+         set_clock_div(b_mck_sim, 2);
+         set_port_clock(p_mck_sim, b_mck_sim);
+         set_port_mode_clock(p_mck_sim);
+         start_clock(b_mck_sim);
+      }
 #endif
    }
    return 0;
@@ -238,9 +242,12 @@ on stdcore[1] : struct i2s_master r_i2s =
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="summary.html">I2S Digital Audio Component</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="">I2S Master</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#symbolic-constants">Symbolic constants</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#structures">Structures</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#api">API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#api">API</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#symbolic-constants">Symbolic constants</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#structures">Structures</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#functions">Functions</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="#example">Example</a></li>
 </ul>
 </li>
