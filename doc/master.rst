@@ -25,7 +25,7 @@ API
 Example
 =======
 
-This example is designed to run on the XDK board with XAI. It takes 3 stereo I2S inputs and sends them out over 4 stereo I2S outputs.
+This example is designed to run on the XDK board with XAI. It takes 3 stereo I2S inputs and sends them out over 4 stereo I2S outputs. I2S_MASTER_NUM_IN and I2S_MASTER_NUM_OUT are defined in the Makefile.
 
 First of all i2s_master should be included and the structure i2s_master defined.
 

@@ -25,8 +25,8 @@
 #endif
 
 #ifndef MCK_BCK_RATIO
-/** BCK is soft divided off MCK
- *  MCK frequency is MCK_BCK_RATIO times BCK frequency
+/** BCK is soft divided off MCK.
+ *  MCK frequency is MCK_BCK_RATIO times BCK frequency.
  */
 #define MCK_BCK_RATIO 8
 #endif
