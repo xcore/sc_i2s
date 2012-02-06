@@ -9,11 +9,12 @@
 #include <print.h>
 #include <stdlib.h>
 #include "i2c.h"
-#include "i2s_master.h"
-
 #ifndef INPUT
 #define INPUT 0
 #endif
+
+//::declaration
+#include "i2s_master.h"
 
 on stdcore[1] : struct i2s_master r_i2s =
 {
@@ -25,6 +26,7 @@ on stdcore[1] : struct i2s_master r_i2s =
   { XS1_PORT_1G, XS1_PORT_1H, XS1_PORT_1I },  // DIN
   { XS1_PORT_1C, XS1_PORT_1D, XS1_PORT_1E, XS1_PORT_1F },  // DOUT
 };
+//::
 
 void i2c_wr(unsigned reg, unsigned val, int addr, struct r_i2c &r_i2c)
 {
@@ -264,6 +266,7 @@ void input_test(streaming chanend c_in, streaming chanend c_out)
   }
 }
 
+//::main program
 int main()
 {
    streaming chan c_in, c_out;
@@ -308,3 +311,4 @@ int main()
    }
    return 0;
 }
+//::
