@@ -15,11 +15,13 @@
 #include <print.h>
 #include <stdlib.h>
 #include "i2c.h"
-#include "i2s_slave.h"
 
 #ifndef INPUT
 #define INPUT 0
 #endif
+
+//::declaration
+#include "i2s_slave.h"
 
 // signal mapping of the XAI board - connected to core 1
 on stdcore[1] : struct i2s_slave r_i2s_slave =
@@ -30,6 +32,7 @@ on stdcore[1] : struct i2s_slave r_i2s_slave =
    { XS1_PORT_1G, XS1_PORT_1H, XS1_PORT_1I },  // DIN
    { XS1_PORT_1C, XS1_PORT_1D, XS1_PORT_1E, XS1_PORT_1F },  // DOUT
 };
+//::
 
 void i2c_wr(unsigned reg, unsigned val, int addr, struct r_i2c &r_i2c)
 {
@@ -277,6 +280,7 @@ void print_info()
    printstrln("WARNING required settings of SW2: DC OFF DC DC");
 }
 
+//::main program
 int main()
 {
    streaming chan c_in, c_out;
@@ -308,3 +312,4 @@ int main()
    }
    return 0;
 }
+//::
