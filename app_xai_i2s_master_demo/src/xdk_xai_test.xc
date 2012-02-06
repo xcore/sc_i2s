@@ -297,16 +297,16 @@ int main()
             }
          }
       }
-    on stdcore[0] : loopback(c_in, c_out);
-    //on stdcore[0] : input_test(c_in, c_out);
+      on stdcore[0] : loopback(c_in, c_out);
+      //on stdcore[0] : input_test(c_in, c_out);
 #ifdef SIM
-    on stdcore[3] : {
-      // generate 25MHz MCK
-      set_clock_div(b_mck_sim, 2);
-      set_port_clock(p_mck_sim, b_mck_sim);
-      set_port_mode_clock(p_mck_sim);
-      start_clock(b_mck_sim);
-    }
+      on stdcore[3] : {
+         // generate 25MHz MCK
+         set_clock_div(b_mck_sim, 2);
+         set_port_clock(p_mck_sim, b_mck_sim);
+         set_port_mode_clock(p_mck_sim);
+         start_clock(b_mck_sim);
+      }
 #endif
    }
    return 0;
