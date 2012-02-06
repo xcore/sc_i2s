@@ -24,6 +24,7 @@
     <script type="text/javascript" src="http://mathjax.connectmv.com/MathJax.js"></script>
     <script type="text/javascript" src="_static/xcomment.js"></script>
     <link rel="top" title="I2S Component v1.2.0 documentation" href="index.html" />
+    <link rel="next" title="I2S Master" href="master.html" />
     <link rel="prev" title="Documentation" href="index.html" /> 
 
 <script>
@@ -53,16 +54,88 @@ document.getElementById('d1').style.height=h2 + "px";
 <div style="float: right">
 <a href="index.html"
                         title="previous chapter"> &lt&lt </a>
+<a href="master.html"
+                        title="next chapter"> &gt&gt </a></p>
 </div>
 
             
   <div class="section" id="i2s-digital-audio-component">
 <h1>I2S Digital Audio Component<a class="headerlink" href="#i2s-digital-audio-component" title="Permalink to this headline">¶</a></h1>
+<p>I2S is a serial link for digital audio.</p>
+<p>The sc_i2s module can input and output multiple stereo audio streams over I2S. Audio samples are sent or received over a streaming channel.</p>
 <div class="section" id="module-i2s-master">
 <h2>module_i2s_master<a class="headerlink" href="#module-i2s-master" title="Permalink to this headline">¶</a></h2>
+<p>This module is a single thread that drives the word clock and bit clock of an I2C link. It can transmit and receive audio data.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="12%" />
+<col width="19%" />
+<col width="14%" />
+<col width="10%" />
+<col width="17%" />
+<col width="29%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head" colspan="2">Functionality provided</th>
+<th class="head" colspan="3">Resources required</th>
+<th class="head" rowspan="2">Status</th>
+</tr>
+<tr><th class="head">Channels</th>
+<th class="head">Sample Rate</th>
+<th class="head">1-bit port</th>
+<th class="head">Memory</th>
+<th class="head">Thread rate</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td>2</td>
+<td>up to 192 KHz</td>
+<td>?</td>
+<td>? KB</td>
+<td>50 MIPS</td>
+<td>Implemented and tested</td>
+</tr>
+</tbody>
+</table>
+<p>MAX ins and outs?
+memory usage?</p>
 </div>
 <div class="section" id="module-i2s-slave">
 <h2>module_i2s_slave<a class="headerlink" href="#module-i2s-slave" title="Permalink to this headline">¶</a></h2>
+<p>This module is a single thread that can transmit and receive I2S audio data using an external word clock and bit clock.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="12%" />
+<col width="19%" />
+<col width="14%" />
+<col width="10%" />
+<col width="17%" />
+<col width="29%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head" colspan="2">Functionality provided</th>
+<th class="head" colspan="3">Resources required</th>
+<th class="head" rowspan="2">Status</th>
+</tr>
+<tr><th class="head">Channels</th>
+<th class="head">Sample Rate</th>
+<th class="head">1-bit port</th>
+<th class="head">Memory</th>
+<th class="head">Thread rate</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td>2</td>
+<td>up to 192 KHz</td>
+<td>?</td>
+<td>? KB</td>
+<td>50 MIPS</td>
+<td>Implemented and tested</td>
+</tr>
+</tbody>
+</table>
+<p>MAX ins and outs?
+memory usage?</p>
 </div>
 </div>
 
@@ -80,6 +153,8 @@ document.getElementById('d1').style.height=h2 + "px";
 <li class="toctree-l2"><a class="reference internal" href="#module-i2s-slave">module_i2s_slave</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="master.html">I2S Master</a></li>
+<li class="toctree-l1"><a class="reference internal" href="slave.html">I2S Slave</a></li>
 </ul>
 
 <div id="searchbox" style="display: none;margin-bottom: 10px;">

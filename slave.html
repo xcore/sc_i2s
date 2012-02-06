@@ -1,0 +1,238 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>I2S Slave &mdash; I2S Component v1.2.0 documentation</title>
+    <link rel="stylesheet" href="_static/xdoc.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '1.2.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="http://mathjax.connectmv.com/MathJax.js"></script>
+    <script type="text/javascript" src="_static/xcomment.js"></script>
+    <link rel="top" title="I2S Component v1.2.0 documentation" href="index.html" />
+    <link rel="prev" title="I2S Master" href="master.html" /> 
+
+<script>
+function setheight() {
+h1 = document.getElementById('d1').style.height;
+h2 = document.getElementById('d2').style.height;
+
+if (parseInt(h1) > parseInt(h2)) {
+document.getElementById('d2').style.height=h1 + "px";
+}
+else {
+document.getElementById('d1').style.height=h2 + "px";
+}
+
+}
+</script>
+</head>
+
+<body onload="setheight();">
+
+  
+
+    <div class="document" id='d1'>
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+<div style="float: right">
+<a href="master.html"
+                        title="previous chapter"> &lt&lt </a>
+</div>
+
+            
+  <div class="section" id="i2s-slave">
+<h1>I2S Slave<a class="headerlink" href="#i2s-slave" title="Permalink to this headline">¶</a></h1>
+<p>The I2S slave module ...</p>
+<div class="section" id="symbolic-constants">
+<h2>Symbolic constants<a class="headerlink" href="#symbolic-constants" title="Permalink to this headline">¶</a></h2>
+<dl class="macro">
+<dt id="I2S_SLAVE_NUM_IN">
+<tt class="descname">I2S_SLAVE_NUM_IN</tt><a class="headerlink" href="#I2S_SLAVE_NUM_IN" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of input ports, each carries two channels of audio.</p>
+</dd></dl>
+
+<dl class="macro">
+<dt id="I2S_SLAVE_NUM_OUT">
+<tt class="descname">I2S_SLAVE_NUM_OUT</tt><a class="headerlink" href="#I2S_SLAVE_NUM_OUT" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of output ports, each carries two channels of audio.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="structures">
+<h2>Structures<a class="headerlink" href="#structures" title="Permalink to this headline">¶</a></h2>
+<dl class="type">
+<dt id="i2s_slave">
+<tt class="descname">i2s_slave</tt><a class="headerlink" href="#i2s_slave" title="Permalink to this definition">¶</a></dt>
+<dd><p>Resources for I2S_SLAVE.</p>
+<p><strong>Structure Members:</strong></p>
+<dl class="member">
+<dt id="i2s_slave.cb">
+clock <tt class="descname">cb</tt><a class="headerlink" href="#i2s_slave.cb" title="Permalink to this definition">¶</a></dt>
+<dd><p>Clock block for external BCK.</p>
+</dd></dl>
+
+<dl class="member">
+<dt id="i2s_slave.bck">
+in port <tt class="descname">bck</tt><a class="headerlink" href="#i2s_slave.bck" title="Permalink to this definition">¶</a></dt>
+<dd><p>Clock port for BCK.</p>
+</dd></dl>
+
+<dl class="member">
+<dt id="i2s_slave.wck">
+in port <tt class="descname">wck</tt><a class="headerlink" href="#i2s_slave.wck" title="Permalink to this definition">¶</a></dt>
+<dd><p>Clock port for WCK.</p>
+</dd></dl>
+
+<dl class="member">
+<dt id="i2s_slave.din">
+in buffered port:32 <tt class="descname">din</tt><a class="headerlink" href="#i2s_slave.din" title="Permalink to this definition">¶</a></dt>
+<dd><p>Input data port(s).</p>
+</dd></dl>
+
+<dl class="member">
+<dt id="i2s_slave.dout">
+out buffered port:32 <tt class="descname">dout</tt><a class="headerlink" href="#i2s_slave.dout" title="Permalink to this definition">¶</a></dt>
+<dd><p>Output data port(s).</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="api">
+<h2>API<a class="headerlink" href="#api" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt>
+void <tt class="descname">i2s_slave</tt><big>(</big>struct <a class="reference internal" href="#i2s_slave" title="i2s_slave"><span>i2s_slave</span></a><em>&nbsp;&amp;r_i2s_slave</em>, streaming chanend<em>&nbsp;c_in</em>, streaming chanend<em>&nbsp;c_out</em><big>)</big></dt>
+<dd><p>I2S Slave function.</p>
+<p>Samples are returned left-aligned e.g. 24-bit audio will look like 0x12345600 (positive) or 0xFF123400 (negative)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>r_i2s_slave</strong> &#8211; Structure to configure the i2s_slave</li>
+<li><strong>c_in</strong> &#8211; Input streaming channel for sample data</li>
+<li><strong>c_out</strong> &#8211; Output streaming channel for sample data</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="example">
+<h2>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
+<p>This example is designed to run on the XDK baord with XAI (or simulator). It takes input on 3 I2S links and outputs the selected one on four I2S links. I2S_SLAVE_NUM_IN and I2S_SLAVE_NUM_OUT are defined in the Makefile.</p>
+<p>First of all i2s_slave should be included and the structure i2s_slave defined.</p>
+<div class="highlight-none"><div class="highlight"><pre>#include &quot;i2s_slave.h&quot;
+
+// signal mapping of the XAI board - connected to core 1
+on stdcore[1] : struct i2s_slave r_i2s_slave =
+{
+   XS1_CLKBLK_1,
+   XS1_PORT_1A,  // BCK
+   XS1_PORT_1B,  // WCK
+   { XS1_PORT_1G, XS1_PORT_1H, XS1_PORT_1I },  // DIN
+   { XS1_PORT_1C, XS1_PORT_1D, XS1_PORT_1E, XS1_PORT_1F },  // DOUT
+};
+</pre></div>
+</div>
+<p>The top level of this example creates the i2s_slave on core 1, along with a 1KHz clock to the PLL and occupies the remaining 6 threads with computation.</p>
+<p>Core 0 runs the loopback function which reads the I2S inputs from the i2s_slave thread over a streaming channel and sends them over a streaming channel back to the i2s_slave thread to the I2S outputs.</p>
+<div class="highlight-none"><div class="highlight"><pre>int main()
+{
+   streaming chan c_in, c_out;
+   par
+   {
+      on stdcore[1] :
+      {
+         char name[3][4] = { &quot;1/2&quot;, &quot;3/4&quot;, &quot;5/6&quot; };
+         print_info();
+         init_pll(r_i2c);
+         reset_codec(rst);
+         init_codec(r_i2c);
+         printstr(&quot;looping back line input &quot;);
+         printstr(name[INPUT]);
+         printstrln(&quot; to line outputs 1/2 3/4 5/6 7/8&quot;);
+         par {
+            fsgen(1000, fs);
+            {
+               mswait(3000);
+               i2s_slave(r_i2s_slave, c_in, c_out);
+            }
+            par (int i = 0; i &lt; 6; i++) {
+               traffic();
+            }
+         }
+      }
+      on stdcore[0] : loopback(c_in, c_out);
+      //on stdcore[0] : input_test(c_in, c_out);
+   }
+   return 0;
+}
+</pre></div>
+</div>
+</div>
+</div>
+
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" id='d2'>
+        <div class="sphinxsidebarwrapper">
+<h3><a href="index.html">I2S Component (1.2.0)</a></h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="summary.html">I2S Digital Audio Component</a></li>
+<li class="toctree-l1"><a class="reference internal" href="master.html">I2S Master</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">I2S Slave</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#symbolic-constants">Symbolic constants</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#structures">Structures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#api">API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#example">Example</a></li>
+</ul>
+</li>
+</ul>
+
+<div id="searchbox" style="display: none;margin-bottom: 10px;">
+  <h3>Search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+
+
+
+    <div class="footer">
+    </div>
+  </body>
+</html>
+
+
+
