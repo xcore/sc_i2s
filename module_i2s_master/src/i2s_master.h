@@ -12,39 +12,50 @@
 #define _i2s_master_h_
 
 
-// number of input and output ports, each carries two channels of audio
 #ifndef I2S_MASTER_NUM_IN
+/** Number of input ports, each carries two channels of audio
+ */
 #define I2S_MASTER_NUM_IN 1
 #endif
 
 #ifndef I2S_MASTER_NUM_OUT
+/** Number of output ports, each carries two channels of audio
+ */
 #define I2S_MASTER_NUM_OUT 1
 #endif
 
-// BCK is soft divided off MCK
-// MCK frequency is MCK_BCK_RATIO times BCK frequency
 #ifndef MCK_BCK_RATIO
+/** BCK is soft divided off MCK
+ *  MCK frequency is MCK_BCK_RATIO times BCK frequency
+ */
 #define MCK_BCK_RATIO 8
 #endif
 
-// resources for I2S_MASTER
+/** Resources for I2S_MASTER
+ */
 struct i2s_master {
-  // clock blocks
-  // one for MCK, one for BCK
-  clock cb1, cb2;
+  clock cb1; /**< Clock block for MCK */
+  clock cb2; /**< Clock block for BCK */
 
-  // clock ports
-  in port mck;
-  out buffered port:32 bck;
-  out buffered port:32 wck;
+  in port mck; /**< Clock port for MCK */
+  out buffered port:32 bck; /**< Clock port for BCK */
+  out buffered port:32 wck; /**< Clock port for WCK */
 
-  // data ports
-  in buffered port:32 din[I2S_MASTER_NUM_IN];
-  out buffered port:32 dout[I2S_MASTER_NUM_OUT];
+  in buffered port:32 din[I2S_MASTER_NUM_IN]; /**< Input data port(s) */
+  out buffered port:32 dout[I2S_MASTER_NUM_OUT]; /**< Output data port(s) */
 };
 
-// samples are returned left-aligned
-// e.g. 24-bit audio will look like 0x12345600 (positive) or 0xFF123400 (negative)
+/** I2S Master function
+ *
+ * Samples are returned left-aligned
+ * e.g. 24-bit audio will look like 0x12345600 (positive) or 0xFF123400 (negative)
+ *
+ * \param r_i2s          Structure to configure the i2s_master
+ *
+ * \param c_in           Input streaming channel for sample data
+ *
+ * \param c_out          Output streaming channel for sample data
+ */
 void i2s_master(struct i2s_master &r_i2s, streaming chanend c_in, streaming chanend c_out);
 
 #endif
