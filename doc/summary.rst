@@ -16,7 +16,7 @@ The sc_i2s module can input and output multiple stereo audio streams on multiple
 module_i2s_master
 -----------------
 
-This module is a single thread I2C bus master. It can transmit and receive audio data and drives the word clock and bit clock.
+This module is a single thread I2S bus master. It can transmit and receive audio data and drives the word clock and bit clock.
 
 It requires the following resources:
 
@@ -33,7 +33,7 @@ It requires the following resources:
 module_i2s_slave
 ----------------
 
-This module is a single thread I2C bus slave. It can transmit and receive audio data from an external word clock and bit clock.
+This module is a single thread I2S bus slave. It can transmit and receive audio data from an external word clock and bit clock.
 
 It requires the following resources:
 
