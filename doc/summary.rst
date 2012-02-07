@@ -1,9 +1,7 @@
 I2S Digital Audio Component
 ===========================
 
-I2S is a serial link for digital audio. Each I2S link carries 2 audio channels.
-
-The I2S bus has 3 wires:
+I2S is a serial link for digital audio. The I2S bus has 3 lines:
 
    - Bit clock or serial clock (BCK)
 
@@ -11,15 +9,14 @@ The I2S bus has 3 wires:
 
    - Data
 
-The sc_i2s module can input and output multiple stereo audio streams over I2S. Audio samples are sent and received over a streaming channel.
+Each I2S data line carries 2 audio channels. Additional data lines can be added for more audio channels.
+
+The sc_i2s module can input and output multiple stereo audio streams on multiple ports. Audio samples are sent and received on a streaming channel.
 
 module_i2s_master
 -----------------
 
-This module is a single thread that acts as a master for an I2S bus.
-
-
-drives the word clock and bit clock of an I2S link. It can transmit and receive audio data.
+This module is a single thread I2C bus master. It can transmit and receive audio data and drives the word clock and bit clock.
 
 It requires the following resources:
 
@@ -36,7 +33,7 @@ It requires the following resources:
 module_i2s_slave
 ----------------
 
-This module is a single thread that can transmit and receive I2S audio data using an external word clock and bit clock.
+This module is a single thread I2C bus slave. It can transmit and receive audio data from an external word clock and bit clock.
 
 It requires the following resources:
 
