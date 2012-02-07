@@ -127,13 +127,13 @@ out buffered port:32 <tt class="descname">wck</tt><a class="headerlink" href="#i
 <dl class="member">
 <dt id="i2s_master.din">
 in buffered port:32 <tt class="descname">din</tt><a class="headerlink" href="#i2s_master.din" title="Permalink to this definition">¶</a></dt>
-<dd><p>Array of 1-bit ports for audio input.</p>
+<dd><p>Array of I2S_MASTER_NUM_IN x 1-bit ports for audio input.</p>
 </dd></dl>
 
 <dl class="member">
 <dt id="i2s_master.dout">
 out buffered port:32 <tt class="descname">dout</tt><a class="headerlink" href="#i2s_master.dout" title="Permalink to this definition">¶</a></dt>
-<dd><p>Array of 1-bit ports for audio output.</p>
+<dd><p>Array of I2S_MASTER_NUM_OUT x 1-bit ports for audio output.</p>
 </dd></dl>
 
 </dd></dl>
@@ -165,7 +165,7 @@ void <tt class="descname">i2s_master</tt><big>(</big>struct <a class="reference 
 </div>
 <div class="section" id="example">
 <h2>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
-<p>This example is designed to run on the XDK board with XAI. It takes 3 stereo I2S inputs and sends them out over 4 stereo I2S outputs. I2S_MASTER_NUM_IN and I2S_MASTER_NUM_OUT are defined in the Makefile.</p>
+<p>This example is designed to run on the XR-USB-AUDIO-2.0-MC board. It takes 3 stereo I2S inputs and sends them out over 4 stereo I2S outputs. I2S_MASTER_NUM_IN and I2S_MASTER_NUM_OUT are defined in the Makefile.</p>
 <p>First of all i2s_master should be included and the structure i2s_master defined.</p>
 <div class="highlight-none"><div class="highlight"><pre>#include &quot;i2s_master.h&quot;
 
@@ -173,11 +173,11 @@ on stdcore[1] : struct i2s_master r_i2s =
 {
   XS1_CLKBLK_1,
   XS1_CLKBLK_2,
-  XS1_PORT_1M,  // MCK
-  XS1_PORT_1A,  // BCK
-  XS1_PORT_1B,  // WCK
-  { XS1_PORT_1G, XS1_PORT_1H, XS1_PORT_1I },  // DIN
-  { XS1_PORT_1C, XS1_PORT_1D, XS1_PORT_1E, XS1_PORT_1F },  // DOUT
+  XS1_PORT_1L,  // MCK
+  XS1_PORT_1I,  // BCK
+  XS1_PORT_1E,  // WCK
+  { XS1_PORT_1G, XS1_PORT_1A, XS1_PORT_1B },  // DIN
+  { XS1_PORT_1M, XS1_PORT_1F, XS1_PORT_1H, XS1_PORT_1N },  // DOUT
 };
 </pre></div>
 </div>
@@ -216,7 +216,7 @@ on stdcore[1] : struct i2s_master r_i2s =
       on stdcore[0] : loopback(c_in, c_out);
       //on stdcore[0] : input_test(c_in, c_out);
 #ifdef SIM
-      on stdcore[3] : {
+      on stdcore[0] : {
          // generate 25MHz MCK
          set_clock_div(b_mck_sim, 2);
          set_port_clock(p_mck_sim, b_mck_sim);

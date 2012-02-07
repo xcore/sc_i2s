@@ -61,8 +61,7 @@ document.getElementById('d1').style.height=h2 + "px";
             
   <div class="section" id="i2s-digital-audio-component">
 <h1>I2S Digital Audio Component<a class="headerlink" href="#i2s-digital-audio-component" title="Permalink to this headline">¶</a></h1>
-<p>I2S is a serial link for digital audio. Each I2S link carries 2 audio channels.</p>
-<p>The I2S bus has 3 wires:</p>
+<p>I2S is a serial link for digital audio. The I2S bus has 3 lines:</p>
 <blockquote>
 <div><ul class="simple">
 <li>Bit clock or serial clock (BCK)</li>
@@ -70,32 +69,32 @@ document.getElementById('d1').style.height=h2 + "px";
 <li>Data</li>
 </ul>
 </div></blockquote>
-<p>The sc_i2s module can input and output multiple stereo audio streams over I2S. Audio samples are sent and received over a streaming channel.</p>
+<p>Each I2S data line carries 2 audio channels (left and right). Additional data lines can be added for more audio channels.</p>
+<p>The sc_i2s module can input and output multiple stereo audio streams on multiple ports. Audio samples are sent and received on a streaming channel.</p>
 <div class="section" id="module-i2s-master">
 <h2>module_i2s_master<a class="headerlink" href="#module-i2s-master" title="Permalink to this headline">¶</a></h2>
-<p>This module is a single thread that acts as a master for an I2S bus.</p>
-<p>drives the word clock and bit clock of an I2S link. It can transmit and receive audio data.</p>
+<p>This module is a single thread I2S bus master. It can transmit and receive audio data and drives the word clock and bit clock.</p>
 <p>It requires the following resources:</p>
 <blockquote>
 <div><ul class="simple">
 <li>1 thread (MIPS dependant on number of inputs and outputs)</li>
 <li>2 clock blocks</li>
-<li>1 input port for each I2S input plus 1 for MCK</li>
-<li>1 output port for each I2S output plus 2 for BCK and WCK</li>
+<li>1 x 1-bit input port for each I2S input plus 1 for MCK</li>
+<li>1 x 1-bit output port for each I2S output plus 2 for BCK and WCK</li>
 <li>0.5 kB memory</li>
 </ul>
 </div></blockquote>
 </div>
 <div class="section" id="module-i2s-slave">
 <h2>module_i2s_slave<a class="headerlink" href="#module-i2s-slave" title="Permalink to this headline">¶</a></h2>
-<p>This module is a single thread that can transmit and receive I2S audio data using an external word clock and bit clock.</p>
+<p>This module is a single thread I2S bus slave. It can transmit and receive audio data from an external word clock and bit clock.</p>
 <p>It requires the following resources:</p>
 <blockquote>
 <div><ul class="simple">
 <li>1 thread (MIPS dependant on number of inputs and outputs)</li>
 <li>1 clock block</li>
-<li>1 input port for each I2S input plus 2 for BCK and WCK</li>
-<li>1 output port for each I2S output</li>
+<li>1 x 1-bit input port for each I2S input plus 2 for BCK and WCK</li>
+<li>1 x 1-bit output port for each I2S output</li>
 <li>0.5 kB memory</li>
 </ul>
 </div></blockquote>

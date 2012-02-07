@@ -105,13 +105,13 @@ in port <tt class="descname">wck</tt><a class="headerlink" href="#i2s_slave.wck"
 <dl class="member">
 <dt id="i2s_slave.din">
 in buffered port:32 <tt class="descname">din</tt><a class="headerlink" href="#i2s_slave.din" title="Permalink to this definition">¶</a></dt>
-<dd><p>Array of 1-bit ports for audio input.</p>
+<dd><p>Array of I2S_SLAVE_NUM_IN x 1-bit ports for audio input.</p>
 </dd></dl>
 
 <dl class="member">
 <dt id="i2s_slave.dout">
 out buffered port:32 <tt class="descname">dout</tt><a class="headerlink" href="#i2s_slave.dout" title="Permalink to this definition">¶</a></dt>
-<dd><p>Array of 1-bit ports for audio output.</p>
+<dd><p>Array of I2S_SLAVE_NUM_OUT x 1-bit ports for audio output.</p>
 </dd></dl>
 
 </dd></dl>
@@ -143,7 +143,7 @@ void <tt class="descname">i2s_slave</tt><big>(</big>struct <a class="reference i
 </div>
 <div class="section" id="example">
 <h2>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
-<p>This example is designed to run on the XDK baord with XAI (or simulator). It takes input on 3 I2S links and outputs the selected one on four I2S links. I2S_SLAVE_NUM_IN and I2S_SLAVE_NUM_OUT are defined in the Makefile.</p>
+<p>This example is designed to run on the XR-USB-AUDIO-2.0-MC board. It takes input on 3 I2S links and outputs the selected one on four I2S links. I2S_SLAVE_NUM_IN and I2S_SLAVE_NUM_OUT are defined in the Makefile.</p>
 <p>First of all i2s_slave should be included and the structure i2s_slave defined.</p>
 <div class="highlight-none"><div class="highlight"><pre>#include &quot;i2s_slave.h&quot;
 
@@ -151,10 +151,10 @@ void <tt class="descname">i2s_slave</tt><big>(</big>struct <a class="reference i
 on stdcore[1] : struct i2s_slave r_i2s_slave =
 {
    XS1_CLKBLK_1,
-   XS1_PORT_1A,  // BCK
-   XS1_PORT_1B,  // WCK
-   { XS1_PORT_1G, XS1_PORT_1H, XS1_PORT_1I },  // DIN
-   { XS1_PORT_1C, XS1_PORT_1D, XS1_PORT_1E, XS1_PORT_1F },  // DOUT
+   XS1_PORT_1I,  // BCK
+   XS1_PORT_1E,  // WCK
+   { XS1_PORT_1G, XS1_PORT_1A, XS1_PORT_1B },  // DIN
+   { XS1_PORT_1M, XS1_PORT_1F, XS1_PORT_1H, XS1_PORT_1N },  // DOUT
 };
 </pre></div>
 </div>
