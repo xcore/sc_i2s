@@ -27,10 +27,10 @@
 on stdcore[1] : struct i2s_slave r_i2s_slave =
 {
    XS1_CLKBLK_1,
-   XS1_PORT_1A,  // BCK
-   XS1_PORT_1B,  // WCK
-   { XS1_PORT_1G, XS1_PORT_1H, XS1_PORT_1I },  // DIN
-   { XS1_PORT_1C, XS1_PORT_1D, XS1_PORT_1E, XS1_PORT_1F },  // DOUT
+   XS1_PORT_1I,  // BCK
+   XS1_PORT_1E,  // WCK
+   { XS1_PORT_1G, XS1_PORT_1A, XS1_PORT_1B },  // DIN
+   { XS1_PORT_1M, XS1_PORT_1F, XS1_PORT_1H, XS1_PORT_1N },  // DOUT
 };
 //::
 
@@ -68,9 +68,9 @@ void reset_codec(out port rst)
    timer tmr;
    unsigned t;
    tmr :> t;
-   rst <: 1; t += 10000; tmr when timerafter(t) :> void;
+   rst <: 8; t += 10000; tmr when timerafter(t) :> void;
    rst <: 0; t += 10000; tmr when timerafter(t) :> void;
-   rst <: 1; t += 10000; tmr when timerafter(t) :> void;
+   rst <: 8; t += 10000; tmr when timerafter(t) :> void;
 }
 
 // set up clock multiplier
@@ -234,11 +234,11 @@ static void traffic()
 }
 
 // control signals
-struct r_i2c r_i2c = {  on stdcore[1] : XS1_PORT_4B,
-                        on stdcore[1] : XS1_PORT_4A };
+struct r_i2c r_i2c = {  on stdcore[1] : XS1_PORT_1D,
+                        on stdcore[1] : XS1_PORT_1C };
 
-out port fs = on stdcore[1] : XS1_PORT_1N;
-out port rst = on stdcore[1] : XS1_PORT_4C;
+out port fs = on stdcore[1] : XS1_PORT_4E;
+out port rst = on stdcore[1] : XS1_PORT_4A;
 
 // capture samples from input and print out
 void input_test(streaming chanend c_in, streaming chanend c_out)

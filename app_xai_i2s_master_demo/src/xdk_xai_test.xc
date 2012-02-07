@@ -20,11 +20,11 @@ on stdcore[1] : struct i2s_master r_i2s =
 {
   XS1_CLKBLK_1,
   XS1_CLKBLK_2,
-  XS1_PORT_1M,  // MCK
-  XS1_PORT_1A,  // BCK
-  XS1_PORT_1B,  // WCK
-  { XS1_PORT_1G, XS1_PORT_1H, XS1_PORT_1I },  // DIN
-  { XS1_PORT_1C, XS1_PORT_1D, XS1_PORT_1E, XS1_PORT_1F },  // DOUT
+  XS1_PORT_1L,  // MCK
+  XS1_PORT_1I,  // BCK
+  XS1_PORT_1E,  // WCK
+  { XS1_PORT_1G, XS1_PORT_1A, XS1_PORT_1B },  // DIN
+  { XS1_PORT_1M, XS1_PORT_1F, XS1_PORT_1H, XS1_PORT_1N },  // DOUT
 };
 //::
 
@@ -60,9 +60,9 @@ void reset_codec(out port rst)
   timer tmr;
   unsigned t;
   tmr :> t;
-  rst <: 1; t += 10000; tmr when timerafter(t) :> void;
+  rst <: 8; t += 10000; tmr when timerafter(t) :> void;
   rst <: 0; t += 10000; tmr when timerafter(t) :> void;
-  rst <: 1; t += 10000; tmr when timerafter(t) :> void;
+  rst <: 8; t += 10000; tmr when timerafter(t) :> void;
 }
 
 void init_pll(struct r_i2c &r_i2c)
@@ -235,11 +235,11 @@ static void traffic()
    }
 }
 
-struct r_i2c r_i2c = {  on stdcore[1] : XS1_PORT_4B,
-                        on stdcore[1] : XS1_PORT_4A };
+struct r_i2c r_i2c = {  on stdcore[1] : XS1_PORT_1D,
+                        on stdcore[1] : XS1_PORT_1C };
 
-out port fs = on stdcore[1] : XS1_PORT_1N;
-out port rst = on stdcore[1] : XS1_PORT_4C;
+out port fs = on stdcore[1] : XS1_PORT_4E;
+out port rst = on stdcore[1] : XS1_PORT_4A;
 
 #ifdef SIM
 out port p_mck_sim = on stdcore[3] : XS1_PORT_1A;
@@ -300,7 +300,7 @@ int main()
       on stdcore[0] : loopback(c_in, c_out);
       //on stdcore[0] : input_test(c_in, c_out);
 #ifdef SIM
-      on stdcore[3] : {
+      on stdcore[0] : {
          // generate 25MHz MCK
          set_clock_div(b_mck_sim, 2);
          set_port_clock(p_mck_sim, b_mck_sim);
