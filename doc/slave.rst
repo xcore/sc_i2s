@@ -32,7 +32,7 @@ This example is designed to run on the XR-USB-AUDIO-2.0-MC board. It takes input
 
 First of all i2s_slave should be included and the structure i2s_slave defined.
 
-.. literalinclude:: app_xai_i2s_slave_demo/src/xdk_xai_test.xc
+.. literalinclude:: app_xai_i2s_slave_demo/src/main.xc
   :start-after: //::declaration
   :end-before: //::
 
@@ -40,6 +40,6 @@ The top level of this example creates the i2s_slave on core 1, along with a 1KHz
 
 Core 0 runs the loopback function which reads the I2S inputs from the i2s_slave thread over a streaming channel and sends them over a streaming channel back to the i2s_slave thread to the I2S outputs.
 
-.. literalinclude:: app_xai_i2s_slave_demo/src/xdk_xai_test.xc
+.. literalinclude:: app_xai_i2s_slave_demo/src/main.xc
   :start-after: //::main program
   :end-before: //::

@@ -34,7 +34,7 @@ This example is designed to run on the XR-USB-AUDIO-2.0-MC board. It takes 3 ste
 
 First of all i2s_master should be included and the structure i2s_master defined.
 
-.. literalinclude:: app_xai_i2s_master_demo/src/xdk_xai_test.xc
+.. literalinclude:: app_xai_i2s_master_demo/src/main.xc
   :start-after: //::declaration
   :end-before: //::
 
@@ -42,6 +42,6 @@ The top level of this example creates the i2s_master on core 1, along with a 1KH
 
 Core 0 runs the loopback function which reads the I2S inputs from the i2s_master thread over a streaming channel and sends them over a streaming channel back to the i2s_master thread to the I2S outputs.
 
-.. literalinclude:: app_xai_i2s_master_demo/src/xdk_xai_test.xc
+.. literalinclude:: app_xai_i2s_master_demo/src/main.xc
   :start-after: //::main program
   :end-before: //::
