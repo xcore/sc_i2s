@@ -1,7 +1,10 @@
 I2S Slave
 '''''''''
 
-The I2S slave module ...
+This module is an I2S slave transmitter and receiver in a single thread. It sends and receives samples over a pair of chanends and transmits audio over I2S. It can send and receive multiple I2S links on separate ports.
+
+As a slave it is driven by the bit clock (BCK) and word clock (WCK) on input ports.
+
 API
 ===
 
