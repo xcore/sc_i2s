@@ -28,7 +28,7 @@ Functions
 Example
 =======
 
-This example is designed to run on the XDK baord with XAI (or simulator). It takes input on 3 I2S links and outputs the selected one on four I2S links. I2S_SLAVE_NUM_IN and I2S_SLAVE_NUM_OUT are defined in the Makefile.
+This example is designed to run on the XDK baord with XAI. It takes input on 3 I2S links and outputs the selected one on four I2S links. I2S_SLAVE_NUM_IN and I2S_SLAVE_NUM_OUT are defined in the Makefile.
 
 First of all i2s_slave should be included and the structure i2s_slave defined.
 

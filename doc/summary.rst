@@ -9,7 +9,7 @@ I2S is a serial link for digital audio. The I2S bus has 3 lines:
 
    - Data
 
-Each I2S data line carries 2 audio channels. Additional data lines can be added for more audio channels.
+Each I2S data line carries 2 audio channels (left and right). Additional data lines can be added for more audio channels.
 
 The sc_i2s module can input and output multiple stereo audio streams on multiple ports. Audio samples are sent and received on a streaming channel.
 
@@ -24,9 +24,9 @@ It requires the following resources:
 
    - 2 clock blocks
 
-   - 1 input port for each I2S input plus 1 for MCK
+   - 1 x 1-bit input port for each I2S input plus 1 for MCK
 
-   - 1 output port for each I2S output plus 2 for BCK and WCK
+   - 1 x 1-bit output port for each I2S output plus 2 for BCK and WCK
 
    - 0.5 kB memory
 
@@ -41,9 +41,9 @@ It requires the following resources:
 
    - 1 clock block
 
-   - 1 input port for each I2S input plus 2 for BCK and WCK
+   - 1 x 1-bit input port for each I2S input plus 2 for BCK and WCK
 
-   - 1 output port for each I2S output
+   - 1 x 1-bit output port for each I2S output
 
    - 0.5 kB memory
 
