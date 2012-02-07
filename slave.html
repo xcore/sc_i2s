@@ -130,8 +130,8 @@ void <tt class="descname">i2s_slave</tt><big>(</big>struct <a class="reference i
 <tbody valign="top">
 <tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>r_i2s_slave</strong> &#8211; Structure to configure the i2s_slave</li>
-<li><strong>c_in</strong> &#8211; Input streaming channel for sample data. Samples are returned on channels in the following order (n is I2S_SLAVE_NUM_IN). Left (din[0]), .., Left (din[n - 1]), Right (din[0]), .., Right (din[n - 1])</li>
-<li><strong>c_out</strong> &#8211; Output streaming channel for sample data Samples are received on channels in the following order (n is I2S_SLAVE_NUM_OUT). Left (dout[0]), .., Left (dout[n - 1]), Right (dout[0]), .., Right (dout[n - 1])</li>
+<li><strong>c_in</strong> &#8211; Input streaming channel for sample data. Samples are returned in the following order: Left (din[0]), .., Left (din[I2S_SLAVE_NUM_IN - 1]), Right (din[0]), .., Right (din[I2S_SLAVE_NUM_IN - 1])</li>
+<li><strong>c_out</strong> &#8211; Output streaming channel for sample data Samples should be sent in the following order: Left (dout[0]), .., Left (dout[I2S_SLAVE_NUM_OUT - 1]), Right (dout[0]), .., Right (dout[I2S_SLAVE_NUM_OUT - 1])</li>
 </ul>
 </td>
 </tr>
