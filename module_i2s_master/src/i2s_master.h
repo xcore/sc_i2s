@@ -41,8 +41,8 @@ struct i2s_master {
   out buffered port:32 bck; /**< Clock port for BCK */
   out buffered port:32 wck; /**< Clock port for WCK */
 
-  in buffered port:32 din[I2S_MASTER_NUM_IN]; /**< Array of 1-bit ports for audio input */
-  out buffered port:32 dout[I2S_MASTER_NUM_OUT]; /**< Array of 1-bit ports for audio output */
+  in buffered port:32 din[I2S_MASTER_NUM_IN]; /**< Array of I2S_MASTER_NUM_IN x 1-bit ports for audio input */
+  out buffered port:32 dout[I2S_MASTER_NUM_OUT]; /**< Array of I2S_MASTER_NUM_OUT x 1-bit ports for audio output */
 };
 
 /** I2S Master function
