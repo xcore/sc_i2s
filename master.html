@@ -61,7 +61,8 @@ document.getElementById('d1').style.height=h2 + "px";
             
   <div class="section" id="i2s-master">
 <h1>I2S Master<a class="headerlink" href="#i2s-master" title="Permalink to this headline">¶</a></h1>
-<p>The I2S master module ...</p>
+<p>This module is an I2S master transmitter and receiver in a single thread. It sends and receives samples over a pair of chanends and transmits audio over I2S. It can send and receive multiple I2S links on separate ports.</p>
+<p>As a master it drives the bit clock (BCK) and word clock (WCK) on output ports. It is clocked by an external master clock (MCK) on an input port.</p>
 <div class="section" id="api">
 <h2>API<a class="headerlink" href="#api" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="symbolic-constants">
@@ -144,15 +145,15 @@ out buffered port:32 <tt class="descname">dout</tt><a class="headerlink" href="#
 <dt>
 void <tt class="descname">i2s_master</tt><big>(</big>struct <a class="reference internal" href="#i2s_master" title="i2s_master"><span>i2s_master</span></a><em>&nbsp;&amp;r_i2s</em>, streaming chanend<em>&nbsp;c_in</em>, streaming chanend<em>&nbsp;c_out</em><big>)</big></dt>
 <dd><p>I2S Master function.</p>
-<p>Samples are returned left-aligned e.g. 24-bit audio will look like 0x12345600 (positive) or 0xFF123400 (negative)</p>
+<p>Samples are left-aligned signed values. e.g. 24-bit audio will look like 0x12345600 (positive) or 0xFF123400 (negative)</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>r_i2s</strong> &#8211; Structure to configure the i2s_master</li>
-<li><strong>c_in</strong> &#8211; Input streaming channel for sample data</li>
-<li><strong>c_out</strong> &#8211; Output streaming channel for sample data</li>
+<li><strong>c_in</strong> &#8211; Input streaming channel for sample data. Samples are returned on channels in the following order (n is I2S_SLAVE_NUM_IN). Left (din[0]), .., Left (din[n - 1]), Right (din[0]), .., Right (din[n - 1])</li>
+<li><strong>c_out</strong> &#8211; Output streaming channel for sample data Samples are received on channels in the following order (n is I2S_SLAVE_NUM_OUT). Left (dout[0]), .., Left (dout[n - 1]), Right (dout[0]), .., Right (dout[n - 1])</li>
 </ul>
 </td>
 </tr>

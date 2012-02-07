@@ -61,81 +61,44 @@ document.getElementById('d1').style.height=h2 + "px";
             
   <div class="section" id="i2s-digital-audio-component">
 <h1>I2S Digital Audio Component<a class="headerlink" href="#i2s-digital-audio-component" title="Permalink to this headline">¶</a></h1>
-<p>I2S is a serial link for digital audio.</p>
-<p>The sc_i2s module can input and output multiple stereo audio streams over I2S. Audio samples are sent or received over a streaming channel.</p>
+<p>I2S is a serial link for digital audio. Each I2S link carries 2 audio channels.</p>
+<p>The I2S bus has 3 wires:</p>
+<blockquote>
+<div><ul class="simple">
+<li>Bit clock or serial clock (BCK)</li>
+<li>Word clock or word select (WCK)</li>
+<li>Data</li>
+</ul>
+</div></blockquote>
+<p>The sc_i2s module can input and output multiple stereo audio streams over I2S. Audio samples are sent and received over a streaming channel.</p>
 <div class="section" id="module-i2s-master">
 <h2>module_i2s_master<a class="headerlink" href="#module-i2s-master" title="Permalink to this headline">¶</a></h2>
-<p>This module is a single thread that drives the word clock and bit clock of an I2C link. It can transmit and receive audio data.</p>
-<table border="1" class="docutils">
-<colgroup>
-<col width="12%" />
-<col width="19%" />
-<col width="14%" />
-<col width="10%" />
-<col width="17%" />
-<col width="29%" />
-</colgroup>
-<thead valign="bottom">
-<tr><th class="head" colspan="2">Functionality provided</th>
-<th class="head" colspan="3">Resources required</th>
-<th class="head" rowspan="2">Status</th>
-</tr>
-<tr><th class="head">Channels</th>
-<th class="head">Sample Rate</th>
-<th class="head">1-bit port</th>
-<th class="head">Memory</th>
-<th class="head">Thread rate</th>
-</tr>
-</thead>
-<tbody valign="top">
-<tr><td>2</td>
-<td>up to 192 KHz</td>
-<td>?</td>
-<td>? KB</td>
-<td>50 MIPS</td>
-<td>Implemented and tested</td>
-</tr>
-</tbody>
-</table>
-<p>MAX ins and outs?
-memory usage?</p>
+<p>This module is a single thread that acts as a master for an I2S bus.</p>
+<p>drives the word clock and bit clock of an I2S link. It can transmit and receive audio data.</p>
+<p>It requires the following resources:</p>
+<blockquote>
+<div><ul class="simple">
+<li>1 thread (MIPS dependant on number of inputs and outputs)</li>
+<li>2 clock blocks</li>
+<li>1 input port for each I2S input plus 1 for MCK</li>
+<li>1 output port for each I2S output plus 2 for BCK and WCK</li>
+<li>0.5 kB memory</li>
+</ul>
+</div></blockquote>
 </div>
 <div class="section" id="module-i2s-slave">
 <h2>module_i2s_slave<a class="headerlink" href="#module-i2s-slave" title="Permalink to this headline">¶</a></h2>
 <p>This module is a single thread that can transmit and receive I2S audio data using an external word clock and bit clock.</p>
-<table border="1" class="docutils">
-<colgroup>
-<col width="12%" />
-<col width="19%" />
-<col width="14%" />
-<col width="10%" />
-<col width="17%" />
-<col width="29%" />
-</colgroup>
-<thead valign="bottom">
-<tr><th class="head" colspan="2">Functionality provided</th>
-<th class="head" colspan="3">Resources required</th>
-<th class="head" rowspan="2">Status</th>
-</tr>
-<tr><th class="head">Channels</th>
-<th class="head">Sample Rate</th>
-<th class="head">1-bit port</th>
-<th class="head">Memory</th>
-<th class="head">Thread rate</th>
-</tr>
-</thead>
-<tbody valign="top">
-<tr><td>2</td>
-<td>up to 192 KHz</td>
-<td>?</td>
-<td>? KB</td>
-<td>50 MIPS</td>
-<td>Implemented and tested</td>
-</tr>
-</tbody>
-</table>
-<p>MAX ins and outs?
-memory usage?</p>
+<p>It requires the following resources:</p>
+<blockquote>
+<div><ul class="simple">
+<li>1 thread (MIPS dependant on number of inputs and outputs)</li>
+<li>1 clock block</li>
+<li>1 input port for each I2S input plus 2 for BCK and WCK</li>
+<li>1 output port for each I2S output</li>
+<li>0.5 kB memory</li>
+</ul>
+</div></blockquote>
 </div>
 </div>
 
