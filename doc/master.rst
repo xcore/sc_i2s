@@ -2,9 +2,11 @@ I2S Master
 ''''''''''
 
 The I2S master module ...
+API
+===
 
 Symbolic constants
-==================
+------------------
 
 .. doxygendefine:: I2S_MASTER_NUM_IN
 
@@ -13,12 +15,12 @@ Symbolic constants
 .. doxygendefine:: MCK_BCK_RATIO
 
 Structures
-==========
+----------
 
 .. doxygenstruct:: i2s_master
 
-API
-===
+Functions
+---------
 
 .. doxygenfunction:: i2s_master
 
