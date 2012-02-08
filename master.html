@@ -190,9 +190,6 @@ on stdcore[1] : struct i2s_master r_i2s =
       on stdcore[1] : {
          char name[3][4] = { &quot;1/2&quot;, &quot;3/4&quot;, &quot;5/6&quot; };
 
-         printstr(&quot;NOTE connect XAI to core 1&quot;);
-         printstrln(&quot;NOTE crossover cable required&quot;);
-         printstrln(&quot;WARNING required settings of SW2: DC ON DC DC&quot;);
 #ifndef SIM
          init_pll(r_i2c);
          reset_codec(rst);
