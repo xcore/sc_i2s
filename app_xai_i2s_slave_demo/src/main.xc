@@ -6,7 +6,6 @@
 ///////////////////////////////////////////////////////////////////////////////
 //
 // Test bench for I2C slave receiver-transmitter
-// Using the XS1-G development kit and XAI audio board
 //
 
 #include <platform.h>
@@ -23,7 +22,6 @@
 //::declaration
 #include "i2s_slave.h"
 
-// signal mapping of the XAI board - connected to core 1
 on stdcore[1] : struct i2s_slave r_i2s_slave =
 {
    XS1_CLKBLK_1,
@@ -56,13 +54,12 @@ unsigned int i2c_rd(unsigned reg, int addr, struct r_i2c &r_i2c)
    return data.data[0];
 }
 
-
 #define REGRD_PLL(reg) i2c_rd(reg, 0x9C, r_i2c)
 #define REGWR_PLL(reg, val) i2c_wr(reg, val, 0x9C, r_i2c)
 #define REGRD_CODEC(reg) i2c_rd(reg, 0x90, r_i2c)
 #define REGWR_CODEC(reg, val) i2c_wr(reg, val, 0x90, r_i2c)
 
-// reset XAI's codec
+// reset codec
 void reset_codec(out port rst)
 {
    timer tmr;
@@ -269,15 +266,11 @@ void input_test(streaming chanend c_in, streaming chanend c_out)
 
 void print_info()
 {
-   printstrln("NOTE works with XS1-G dev kit and XAI audio board");
-   printstrln("codec in master mode - G4 inputs all clocks");
-   printstrln("XAI clock multiplier generates 24.576MHz master clock");
+   printstrln("codec in master mode");
+   printstrln("clock multiplier generates 24.576MHz master clock");
    printstrln("sampling frequency: 48000");
    printstr("bit clock: ");
    printintln(48000 * 64);
-   printstrln("NOTE connect XAI to core 1");
-   printstrln("NOTE crossover cable required");
-   printstrln("WARNING required settings of SW2: DC OFF DC DC");
 }
 
 //::main program

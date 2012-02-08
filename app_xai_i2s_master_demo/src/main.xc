@@ -274,9 +274,6 @@ int main()
       on stdcore[1] : {
          char name[3][4] = { "1/2", "3/4", "5/6" };
 
-         printstr("NOTE connect XAI to core 1");
-         printstrln("NOTE crossover cable required");
-         printstrln("WARNING required settings of SW2: DC ON DC DC");
 #ifndef SIM
          init_pll(r_i2c);
          reset_codec(rst);
