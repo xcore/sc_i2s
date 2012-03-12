@@ -1,21 +1,24 @@
 <?xml version="1.0" ?>
 <xpd>
     <dependency repo = "sc_i2c">
-        <githash>2ec286798c37e34a3130eb1b23471bf42ff6b2af</githash>
+        <githash>b89c5045029d8e8d7ef4a4ce6f94eb6791ea2735</githash>
         <uri>ssh://git@github.com/xcore/sc_i2c</uri>
-        <version>2.0.0rc0</version>
+        <version>2.0.0rc1</version>
     </dependency>
     <dependency repo = "xcommon">
-        <githash>2d310cc19558a756d2477625338491f66ff0e57d</githash>
+        <githash>b7b5be59795a0a4b3fee4aeaff3c8e398bf76d27</githash>
         <uri>ssh://git@github.com/xcore/xcommon</uri>
+        <version>1.0.0rc2</version>
     </dependency>
     <description>I2S Digital Audio Component</description>
     <location>git@github.com:xcore/sc_i2s</location>
     <name>sc_i2s</name>
     <maintainer>davelxmos</maintainer>
+    <partnumber>XM-001654-DH</partnumber>
     <release parenthash = "7e3418fcb3ba55e96181913f28b412775cfa5937" version = "1.2.0beta0" githash = "1ef3ad83d50f361b49de59963192f7ef89af038f"></release>
-    <release parenthash = "8add6ae72ee457b25ca8deaf6a02570706032e0c" version = "1.2.0rc0"></release>
+    <release parenthash = "8add6ae72ee457b25ca8deaf6a02570706032e0c" version = "1.2.0rc0" githash = "237bf74edbe99636ee822c41b1fe7ddee1f141a7"></release>
     <scope>example</scope>
+    <subpartnumber>XM-000076-SW</subpartnumber>
     <vendor>XMOS</vendor>
     <xpd_version>1.0</xpd_version>
 </xpd>

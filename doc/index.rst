@@ -1,5 +1,5 @@
-Documentation
--------------
+I2S Software Component
+----------------------
 
 .. toctree::
 
