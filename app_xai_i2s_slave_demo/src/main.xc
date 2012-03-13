@@ -32,32 +32,28 @@ on stdcore[1] : struct i2s_slave r_i2s_slave =
 };
 //::
 
+
 void i2c_wr(unsigned reg, unsigned val, int addr, struct r_i2c &r_i2c)
 {
-   struct i2c_data_info data;
-   data.master_num = 0;
-   data.data_len = 1;
-   data.clock_mul = 1;
-   data.data[0] = val;
-
-   i2c_master_tx(addr, reg, data, r_i2c);
+  unsigned char data[1];
+  data[0] = val;
+  i2c_master_write_reg(addr, reg, data, 1, r_i2c);
 }
 
 unsigned int i2c_rd(unsigned reg, int addr, struct r_i2c &r_i2c)
 {
-   struct i2c_data_info data;
-   data.master_num = 0;
-   data.data_len = 1;
-   data.clock_mul = 1;
-
-   i2c_master_rx(addr, reg, data, r_i2c);
-   return data.data[0];
+  unsigned char data[1];
+  i2c_master_read_reg(addr, reg, data,1,r_i2c);
+  return data[0];
 }
 
-#define REGRD_PLL(reg) i2c_rd(reg, 0x9C, r_i2c)
-#define REGWR_PLL(reg, val) i2c_wr(reg, val, 0x9C, r_i2c)
-#define REGRD_CODEC(reg) i2c_rd(reg, 0x90, r_i2c)
-#define REGWR_CODEC(reg, val) i2c_wr(reg, val, 0x90, r_i2c)
+#define PLL_DEV_ADR (0x9C >> 1)
+#define CODEC_DEV_ADR (0x90 >> 1)
+
+#define REGRD_PLL(reg) i2c_rd(reg, PLL_DEV_ADR, r_i2c)
+#define REGWR_PLL(reg, val) i2c_wr(reg, val, PLL_DEV_ADR, r_i2c)
+#define REGRD_CODEC(reg) i2c_rd(reg, CODEC_DEV_ADR, r_i2c)
+#define REGWR_CODEC(reg, val) i2c_wr(reg, val, CODEC_DEV_ADR, r_i2c)
 
 // reset codec
 void reset_codec(out port rst)
@@ -232,7 +228,8 @@ static void traffic()
 
 // control signals
 struct r_i2c r_i2c = {  on stdcore[1] : XS1_PORT_1D,
-                        on stdcore[1] : XS1_PORT_1C };
+                        on stdcore[1] : XS1_PORT_1C,
+                        1000 };
 
 out port fs = on stdcore[1] : XS1_PORT_4E;
 out port rst = on stdcore[1] : XS1_PORT_4A;
