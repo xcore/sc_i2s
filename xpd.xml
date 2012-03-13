@@ -11,15 +11,16 @@
         <version>1.0.0rc2</version>
     </dependency>
     <description>I2S Digital Audio Component</description>
+    <docdir>doc</docdir>
     <location>git@github.com:xcore/sc_i2s</location>
     <name>sc_i2s</name>
     <maintainer>davelxmos</maintainer>
     <partnumber>XM-001654-DH</partnumber>
     <release parenthash = "7e3418fcb3ba55e96181913f28b412775cfa5937" version = "1.2.0beta0" githash = "1ef3ad83d50f361b49de59963192f7ef89af038f"></release>
     <release parenthash = "8add6ae72ee457b25ca8deaf6a02570706032e0c" version = "1.2.0rc0" githash = "237bf74edbe99636ee822c41b1fe7ddee1f141a7"></release>
+    <release parenthash = "622160ca644b474415218a5050cdc135890ee1f5" version = "1.3.0rc0"></release>
     <scope>example</scope>
     <subpartnumber>XM-000076-SW</subpartnumber>
     <vendor>XMOS</vendor>
     <xpd_version>1.0</xpd_version>
-    <docdir>doc</docdir>
 </xpd>

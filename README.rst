@@ -1,13 +1,12 @@
 I2S Digital Audio Component
 ...........................
 
-:Stable release:  1.2.0
+:Latest release: 1.3.0rc0
+:Maintainer: davelxmos
+:Description: I2S Digital Audio Component
 
-:Status:  Example
 
-:Maintainer:  davelxmos
 
-:Description:  I2S component
 
 
 Key Features
@@ -22,13 +21,14 @@ Documentation
 
 Full documentation can be found at: http://xcore.github.com/sc_i2s/
 
-Required Repositories
-================
-
-* sc_i2c  git\@github.com:xcore/sc_i2c.git
-* xcommon git\@github.com:xcore/xcommon.git
-
 Support
 =======
 
 Issues may be submitted via the Issues tab in this github repo. Response to any issues submitted as at the discretion of the manitainer for this line.
+
+Required software (dependencies)
+================================
+
+  * sc_i2c (ssh://git@github.com/xcore/sc_i2c)
+  * xcommon (if using development tools earlier than 11.11.0)
+
