@@ -12,16 +12,16 @@
 #define _i2s_master_h_
 
 
-#ifndef I2S_MASTER_NUM_IN
+#ifndef I2S_MASTER_NUM_ADC
 /** Number of input ports, each carries two channels of audio
  */
-#define I2S_MASTER_NUM_IN 1
+#define I2S_MASTER_NUM_ADC 1
 #endif
 
-#ifndef I2S_MASTER_NUM_OUT
+#ifndef I2S_MASTER_NUM_DAC
 /** Number of output ports, each carries two channels of audio
  */
-#define I2S_MASTER_NUM_OUT 1
+#define I2S_MASTER_NUM_DAC 1
 #endif
 
 #ifndef MCK_BCK_RATIO
@@ -41,8 +41,8 @@ struct i2s_master {
   out buffered port:32 bck; /**< Clock port for BCK */
   out buffered port:32 wck; /**< Clock port for WCK */
 
-  in buffered port:32 din[I2S_MASTER_NUM_IN]; /**< Array of I2S_MASTER_NUM_IN x 1-bit ports for audio input */
-  out buffered port:32 dout[I2S_MASTER_NUM_OUT]; /**< Array of I2S_MASTER_NUM_OUT x 1-bit ports for audio output */
+  in buffered port:32 din[I2S_MASTER_NUM_ADC]; /**< Array of I2S_MASTER_NUM_IN x 1-bit ports for audio input */
+  out buffered port:32 dout[I2S_MASTER_NUM_DAC]; /**< Array of I2S_MASTER_NUM_OUT x 1-bit ports for audio output */
 };
 
 /** I2S Master function
