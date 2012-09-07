@@ -2,7 +2,7 @@ I2S Digital Audio Component
 ...........................
 
 :Latest release: 1.3.0rc2
-:Maintainer: davelxmos
+:Maintainer: xross, davelxmos
 :Description: I2S Digital Audio Component
 
 
@@ -12,6 +12,7 @@ Key Features
  * Master and Slave I2S component
  * Runs in a thread - multiple data interfaces supported (with same
    clock domain)
+ * Includes application demonstrations
 
 Documentation
 =============
