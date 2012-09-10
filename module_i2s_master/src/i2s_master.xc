@@ -97,8 +97,8 @@ void i2s_master_loop(in buffered port:32 p_i2s_adc[], out buffered port:32 p_i2s
 
         // input audio data
         // will be output to channel end as left-aligned
-		// compiler would insert SETC FULL on DIN input, because it doesn't know about inline SETPT above
-		// hence we need inline IN too
+        // compiler would insert SETC FULL on DIN input, because it doesn't know about inline SETPT above
+        // hence we need inline IN too
         p = 0;
 #pragma loop unroll
         for (int i = 0; i < I2S_MASTER_NUM_CHANS_ADC; i+=2) 
