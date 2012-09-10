@@ -12,17 +12,33 @@
 #define _i2s_master_h_
 
 
-#ifndef I2S_MASTER_NUM_ADC
-/** Number of input ports, each carries two channels of audio
+#ifndef I2S_MASTER_NUM_CHANS_ADC
+/** Number of ADC audio channels
  */
-#define I2S_MASTER_NUM_ADC 1
+//#define I2S_MASTER_NUM_CHANS_ADC 2
+//#warning I2S_MASTER_NUM_CHANS_ADC not defined, using 2 (i.e. stereo)
 #endif
 
-#ifndef I2S_MASTER_NUM_DAC
-/** Number of output ports, each carries two channels of audio
+#ifndef I2S_MASTER_NUM_CHANS_DAC 
+/** Number of DAC audio channels 
  */
-#define I2S_MASTER_NUM_DAC 1
+//#define I2S_MASTER_NUM_CHANS_DAC 2
+//#warning I2S_MASTER_NUM_CHANS_DAC not defined, using 2 (i.e. stereo)
 #endif
+
+#ifndef I2S_MASTER_NUM_PORTS_DAC
+/** Number of I2S DAC ports
+ */
+#define I2S_MASTER_NUM_PORTS_DAC (I2S_MASTER_NUM_CHANS_DAC>>1)
+#endif
+
+#ifndef I2S_MASTER_NUM_PORTS_ADC
+/** Number of I2S ADC ports
+ */
+#define I2S_MASTER_NUM_PORTS_ADC (I2S_MASTER_NUM_CHANS_ADC>>1)
+#endif
+
+
 
 #ifndef MCK_BCK_RATIO
 /** BCK is soft divided off MCK.
@@ -33,16 +49,16 @@
 
 /** Resources for I2S_MASTER
  */
-struct i2s_master {
-  clock cb1; /**< Clock block for MCK */
-  clock cb2; /**< Clock block for BCK */
+struct r_i2s {
+    clock cb1; /**< Clock block for MCK */
+    clock cb2; /**< Clock block for BCK */
 
-  in port mck; /**< Clock port for MCK */
-  out buffered port:32 bck; /**< Clock port for BCK */
-  out buffered port:32 wck; /**< Clock port for WCK */
+    in port mck; /**< Clock port for MCK */
+    out buffered port:32 bck; /**< Clock port for BCK */
+    out buffered port:32 wck; /**< Clock port for WCK */
 
-  in buffered port:32 din[I2S_MASTER_NUM_ADC]; /**< Array of I2S_MASTER_NUM_IN x 1-bit ports for audio input */
-  out buffered port:32 dout[I2S_MASTER_NUM_DAC]; /**< Array of I2S_MASTER_NUM_OUT x 1-bit ports for audio output */
+    in buffered port:32 din[I2S_MASTER_NUM_PORTS_ADC]; /**< Array of I2S_MASTER_NUM_IN x 1-bit ports for audio input */
+    out buffered port:32 dout[I2S_MASTER_NUM_PORTS_DAC]; /**< Array of I2S_MASTER_NUM_OUT x 1-bit ports for audio output */
 };
 
 /** I2S Master function
@@ -62,6 +78,6 @@ struct i2s_master {
  *                       Left (dout[0]), .., Left (dout[I2S_MASTER_NUM_OUT - 1]),
  *                       Right (dout[0]), .., Right (dout[I2S_MASTER_NUM_OUT - 1])
  */
-void i2s_master(struct i2s_master &r_i2s, streaming chanend c_in, streaming chanend c_out);
+void i2s_master(struct r_i2s &r_i2s, streaming chanend c_data);
 
 #endif

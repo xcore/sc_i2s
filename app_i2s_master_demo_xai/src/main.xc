@@ -16,7 +16,7 @@
 //::declaration
 #include "i2s_master.h"
 
-on stdcore[1] : struct i2s_master r_i2s =
+on stdcore[1] : struct r_i2s r_i2s =
 {
   XS1_CLKBLK_1,
   XS1_CLKBLK_2,
@@ -284,7 +284,7 @@ int main()
             fsgen_busy(1000, fs);
             {
                mswait(300);
-               i2s_master(r_i2s, c_in, c_out);
+               i2s_master(r_i2s, c_out);
             }
             par (int i = 0; i < 6; i++) {
               traffic();
