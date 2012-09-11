@@ -4,10 +4,8 @@
 
 #include "i2s_master.h"
 
-#ifndef MCLK_BCLK_DIV
-#error MCLK_BCLK_DIV must currently be defined!
-#endif
 
+#ifdef MCLK_BCLK_DIV
 // Soft divide BCK off MCK
 static inline void bck_32_ticks(out buffered port:32 bck)
 {
@@ -32,8 +30,40 @@ static inline void bck_32_ticks(out buffered port:32 bck)
 #error "MCK/BCK ratio must be 2, 4 or 8"
 #endif
 }
+#else
+static inline void bck_32_ticks(out buffered port:32 p_bck, unsigned divide)
+{
+    switch(divide)
+    {
+        case (2):
+            p_bck <: 0x55555555;
+            p_bck <: 0x55555555;
+            break;
+        case (4):
+            p_bck <: 0x33333333;
+            p_bck <: 0x33333333;
+            p_bck <: 0x33333333;
+            p_bck <: 0x33333333;
+            break;
+        case (8):
+            p_bck <: 0x0F0F0F0F;
+            p_bck <: 0x0F0F0F0F;
+            p_bck <: 0x0F0F0F0F;
+            p_bck <: 0x0F0F0F0F;
+            p_bck <: 0x0F0F0F0F;
+            p_bck <: 0x0F0F0F0F;
+            p_bck <: 0x0F0F0F0F;
+            p_bck <: 0x0F0F0F0F;
+            break;
+        default:
+            /* This is an error case */
+            break;
+    }
+}
+#endif
 
-void i2s_master_loop(in buffered port:32 p_i2s_adc[], out buffered port:32 p_i2s_dac[], streaming chanend c, out buffered port:32 p_lrclk, out buffered port:32 p_bclk)
+
+void i2s_master_loop(in buffered port:32 p_i2s_adc[], out buffered port:32 p_i2s_dac[], streaming chanend c, out buffered port:32 p_lrclk, out buffered port:32 p_bclk, int divide)
 {
     unsigned sampsAdc[I2S_MASTER_NUM_CHANS_ADC];
     unsigned sampsDac[I2S_MASTER_NUM_CHANS_DAC];
@@ -67,8 +97,8 @@ void i2s_master_loop(in buffered port:32 p_i2s_adc[], out buffered port:32 p_i2s
 	p_lrclk @ 31 <: 0;
 
     // clocks for previous outputs / inputs
-    bck_32_ticks(p_bclk);
-    bck_32_ticks(p_bclk);
+    bck_32_ticks(p_bclk, divide);
+    bck_32_ticks(p_bclk, divide);
 
 #pragma unsafe arrays
     while (1) 
@@ -109,7 +139,7 @@ void i2s_master_loop(in buffered port:32 p_i2s_adc[], out buffered port:32 p_i2s
         }
 
         // drive bit clock
-        bck_32_ticks(p_bclk);
+        bck_32_ticks(p_bclk, divide);
         // output audio data
         // expected to come from channel end as left-aligned
         p = 0;
@@ -136,7 +166,7 @@ void i2s_master_loop(in buffered port:32 p_i2s_adc[], out buffered port:32 p_i2s
         }
 
         // drive bit clock
-        bck_32_ticks(p_bclk);
+        bck_32_ticks(p_bclk, divide);
 
     }
     
@@ -168,6 +198,7 @@ void i2s_master(struct r_i2s &r_i2s, streaming chanend c_data)
     start_clock(r_i2s.cb1);
     start_clock(r_i2s.cb2);
 
+    
     // Run I2S i/o loop
-    i2s_master_loop(r_i2s.din, r_i2s.dout, c_data, r_i2s.wck, r_i2s.bck);
+    i2s_master_loop(r_i2s.din, r_i2s.dout, c_data, r_i2s.wck, r_i2s.bck, 8);
 }
