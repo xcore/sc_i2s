@@ -68,16 +68,24 @@ struct r_i2s {
  *
  * \param r_i2s          Structure to configure the i2s_master
  *
- * \param c_in           Input streaming channel for sample data.
- *                       Samples are returned in the following order:
- *                       Left (din[0]), .., Left (din[I2S_MASTER_NUM_IN - 1]),
- *                       Right (din[0]), .., Right (din[I2S_MASTER_NUM_IN - 1])
+ * \param c_data         Streaming channel for sample data. 
  *
- * \param c_out          Output streaming channel for sample data
- *                       Samples should be sent in the following order:
- *                       Left (dout[0]), .., Left (dout[I2S_MASTER_NUM_OUT - 1]),
- *                       Right (dout[0]), .., Right (dout[I2S_MASTER_NUM_OUT - 1])
+ *                       First samples are exchanged over the channel in the following order:
+ *                       Channel 0 (left), Channel 1 (right) ... Channel I2S_MASTER_NUM_CHAN_ADC-1, Channel I2S_MASTER_NUM_CHAN_ADC
+ *
+ *                       Samples should then be sent in the following order:
+ *                       Channel 0 (left), Channel 1 (right) ... Channel I2S_MASTER_NUM_CHAN_DAC-1, Channel I2S_MASTER_NUM_CHAN_DAC
  */
-void i2s_master(struct r_i2s &r_i2s, streaming chanend c_data);
+void i2s_master(struct r_i2s &r_i2s, streaming chanend c_data, unsigned mclk_bclk_div);
 
+/** 
+ * 
+ * \param sampFreq      Desired sample frequency
+ *
+ * \param mClkFreq      Master clock frequency
+ *
+ * \return              Returns the mclk to bit clock ratio for given sample freq/master clock pair
+ *
+ */
+unsigned get_mclk_bclk_div(unsigned sampFreq, unsigned mClkFreq);
 #endif

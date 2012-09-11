@@ -1,7 +1,5 @@
 
-#include <print.h>
 #include "app_global.h"
-
 
 void processing(streaming chanend c)
 {
@@ -18,9 +16,6 @@ void processing(streaming chanend c)
     {
         sampsDac[i] = 0;
     }
-
-    //printintln(I2S_MASTER_NUM_CHANS_DAC);
-    //printintln(I2S_MASTER_NUM_CHANS_ADC);
 
     while(1)
     { 

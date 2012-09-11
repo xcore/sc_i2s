@@ -60,13 +60,12 @@ int main()
     {
         on stdcore[1] : 
         {
+            unsigned mclk_bclk_div = MCLK_FREQ/(SAMP_FREQ * 64);
             audio_hw_init();
 
-            while(1)
-            {
-                audio_hw_config(48000);           
-                i2s_master(r_i2s, c_data);
-            }
+            audio_hw_config(SAMP_FREQ);           
+            
+            i2s_master(r_i2s, c_data, mclk_bclk_div);
         }
 
         on stdcore[1] : processing(c_data);
