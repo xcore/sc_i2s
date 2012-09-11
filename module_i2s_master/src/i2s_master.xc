@@ -4,33 +4,9 @@
 
 #include "i2s_master.h"
 
-
-#ifdef MCLK_BCLK_DIV
-// Soft divide BCK off MCK
-static inline void bck_32_ticks(out buffered port:32 bck)
-{
-#if MCLK_BCLK_DIV == 2
-  bck <: 0x55555555;
-  bck <: 0x55555555;
-#elif MCLK_BCLK_DIV == 4
-  bck <: 0x33333333;
-  bck <: 0x33333333;
-  bck <: 0x33333333;
-  bck <: 0x33333333;
-#elif MCLK_BCLK_DIV == 8
-  bck <: 0x0F0F0F0F;
-  bck <: 0x0F0F0F0F;
-  bck <: 0x0F0F0F0F;
-  bck <: 0x0F0F0F0F;
-  bck <: 0x0F0F0F0F;
-  bck <: 0x0F0F0F0F;
-  bck <: 0x0F0F0F0F;
-  bck <: 0x0F0F0F0F;
-#else
-#error "MCK/BCK ratio must be 2, 4 or 8"
-#endif
-}
-#else
+/* Drive out 32 bit clocks.  This essentially is dividing the master clock in software.
+ * Note, currently only divide by 2,4,8 supported.
+ */
 static inline void bck_32_ticks(out buffered port:32 p_bck, unsigned divide)
 {
     switch(divide)
@@ -60,7 +36,6 @@ static inline void bck_32_ticks(out buffered port:32 p_bck, unsigned divide)
             break;
     }
 }
-#endif
 
 
 void i2s_master_loop(in buffered port:32 p_i2s_adc[], out buffered port:32 p_i2s_dac[], streaming chanend c, out buffered port:32 p_lrclk, out buffered port:32 p_bclk, int divide)
@@ -105,16 +80,19 @@ void i2s_master_loop(in buffered port:32 p_i2s_adc[], out buffered port:32 p_i2s
     {
         int p = 0;
 
+        /* Send ADC samples over channel... */
 #pragma loop unroll
         for (int i = 0; i < I2S_MASTER_NUM_CHANS_ADC; i++)
             c <: sampsAdc[i];
        
+        /* Receive DAC samples from channel... */
 #pragma loop unroll
         for (int i = 0; i < I2S_MASTER_NUM_CHANS_DAC; i++)
             c :> sampsDac[i];
         
-        // output audio data
-        // expected to come from channel end as left-aligned
+        /* Output next DAC audio data for "Left" or "even" channels to I2S data ports.
+         * Samples expected to come from channel end as left-aligned
+         */
         p = 0;
 #pragma loop unroll
         for (int i = 0; i < I2S_MASTER_NUM_CHANS_DAC; i+=2) 
@@ -122,13 +100,11 @@ void i2s_master_loop(in buffered port:32 p_i2s_adc[], out buffered port:32 p_i2s
             p_i2s_dac[p++] <: bitrev(sampsDac[i]);
         }
 
-        // drive word clock
-        p_lrclk <: 0;
-
-        // input audio data
-        // will be output to channel end as left-aligned
-        // compiler would insert SETC FULL on DIN input, because it doesn't know about inline SETPT above
-        // hence we need inline IN too
+        /* Input previous ADC audio data
+         * Will be output to channel end as left-aligned
+         * compiler would insert SETC FULL on DIN input, because it doesn't know about inline SETPT above
+         * hence we need inline IN too
+         */
         p = 0;
 #pragma loop unroll
         for (int i = 0; i < I2S_MASTER_NUM_CHANS_ADC; i+=2) 
@@ -137,20 +113,22 @@ void i2s_master_loop(in buffered port:32 p_i2s_adc[], out buffered port:32 p_i2s
 		    asm("in %0, res[%1]" : "=r"(x)  : "r"(p_i2s_adc[p++]));
             sampsAdc[i] = bitrev(x);
         }
-
-        // drive bit clock
+    
+        /* Output LR clock value to port */
+        p_lrclk <: 0;
+        
+        /* drive bit clock. This will clock out LRClk and DAC data from ports and clock in next 
+         * ADC data into ports
+         */
         bck_32_ticks(p_bclk, divide);
-        // output audio data
-        // expected to come from channel end as left-aligned
+        
+        /* Output "right" (or "odd") channel DAC data to DAC ports */
         p = 0;
 #pragma loop unroll
         for (int i = 1; i < I2S_MASTER_NUM_CHANS_DAC; i+=2) 
         { 
             p_i2s_dac[p++] <: bitrev(sampsDac[i]);
         }
-
-        // drive word clock
-        p_lrclk <: 0xffffffff;
 
         // input audio data
         // will be output to channel end as left-aligned
@@ -165,11 +143,11 @@ void i2s_master_loop(in buffered port:32 p_i2s_adc[], out buffered port:32 p_i2s
             sampsAdc[i] = bitrev(x);
         }
 
+        // drive word clock
+        p_lrclk <: 0xffffffff;
         // drive bit clock
         bck_32_ticks(p_bclk, divide);
-
     }
-    
 }
 
 unsigned get_mclk_bclk_div(unsigned sampFreq, unsigned mClkFreq)
