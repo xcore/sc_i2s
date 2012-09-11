@@ -1,6 +1,6 @@
 #include <xclib.h>
 #include <xs1.h>
-#include <print.h>
+#include <assert.h>
 
 #include "i2s_master.h"
 
@@ -145,6 +145,7 @@ void i2s_master_loop(in buffered port:32 p_i2s_adc[], out buffered port:32 p_i2s
 
         // drive word clock
         p_lrclk <: 0xffffffff;
+
         // drive bit clock
         bck_32_ticks(p_bclk, divide);
     }
@@ -157,31 +158,40 @@ unsigned get_mclk_bclk_div(unsigned sampFreq, unsigned mClkFreq)
 
 void i2s_master(struct r_i2s &r_i2s, streaming chanend c_data, unsigned mclk_bclk_div)
 {
-    // clock block 1 clocked off MCK
-    set_clock_src(r_i2s.cb1, r_i2s.mck);
+    if(mclk_bclk_div == 1)
+    {
+        assert(mclk_bclk_div != 1);
+    }
+    else
+    {
+        // clock block 1 clocked off MCK
+        set_clock_src(r_i2s.cb1, r_i2s.mck);
 
-    // clock block 2 clocked off BCK (which is generated on-chip)
-    set_clock_src(r_i2s.cb2, r_i2s.bck);
+        // clock block 2 clocked off BCK (which is generated on-chip)
+        set_clock_src(r_i2s.cb2, r_i2s.bck);
 
-    // BCK port clocked off clock block 1
-    set_port_clock(r_i2s.bck, r_i2s.cb1);
+        // BCK port clocked off clock block 1
+        set_port_clock(r_i2s.bck, r_i2s.cb1);
 
-    // WCK and all data ports clocked off clock block 2
-    set_port_clock(r_i2s.wck, r_i2s.cb2);
+        // WCK and all data ports clocked off clock block 2
+        set_port_clock(r_i2s.wck, r_i2s.cb2);
     
-    for (int i = 0; i < I2S_MASTER_NUM_PORTS_ADC; i++) 
-    {
-        set_port_clock(r_i2s.din[i], r_i2s.cb2);
-    }
-    for (int i = 0; i < I2S_MASTER_NUM_PORTS_DAC; i++) 
-    {
-        set_port_clock(r_i2s.dout[i], r_i2s.cb2);
+        for (int i = 0; i < I2S_MASTER_NUM_PORTS_ADC; i++) 
+        {
+            set_port_clock(r_i2s.din[i], r_i2s.cb2);
+        }
+        for (int i = 0; i < I2S_MASTER_NUM_PORTS_DAC; i++) 
+        {
+            set_port_clock(r_i2s.dout[i], r_i2s.cb2);
+        }
+    
+
+        // Start clock blocks after configuration
+        start_clock(r_i2s.cb1);
+        start_clock(r_i2s.cb2);
+ 
     }
 
-    // Start clock blocks after configuration
-    start_clock(r_i2s.cb1);
-    start_clock(r_i2s.cb2);
- 
     // Run I2S i/o loop
     i2s_master_loop(r_i2s.din, r_i2s.dout, c_data, r_i2s.wck, r_i2s.bck, mclk_bclk_div);
 

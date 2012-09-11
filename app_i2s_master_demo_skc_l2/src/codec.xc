@@ -2,7 +2,7 @@
 #include <xs1.h>
 #include <print.h>
 #include "i2c.h"
-#include "p_gpio_defines.h"
+#include "xa_sk_audio_1v0.h"
 
 extern port p_i2c;
 extern out port p_gpio;
