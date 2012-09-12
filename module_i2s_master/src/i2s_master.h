@@ -15,15 +15,15 @@
 #ifndef I2S_MASTER_NUM_CHANS_ADC
 /** Number of ADC audio channels
  */
-//#define I2S_MASTER_NUM_CHANS_ADC 2
-//#warning I2S_MASTER_NUM_CHANS_ADC not defined, using 2 (i.e. stereo)
+#define I2S_MASTER_NUM_CHANS_ADC 2
+#warning I2S_MASTER_NUM_CHANS_ADC not defined, using 2 (i.e. stereo)
 #endif
 
 #ifndef I2S_MASTER_NUM_CHANS_DAC 
 /** Number of DAC audio channels 
  */
-//#define I2S_MASTER_NUM_CHANS_DAC 2
-//#warning I2S_MASTER_NUM_CHANS_DAC not defined, using 2 (i.e. stereo)
+#define I2S_MASTER_NUM_CHANS_DAC 2
+#warning I2S_MASTER_NUM_CHANS_DAC not defined, using 2 (i.e. stereo)
 #endif
 
 #ifndef I2S_MASTER_NUM_PORTS_DAC
