@@ -54,7 +54,7 @@ And for 96kHz:
 
     24.576 / (96000 * 64) = 4
 
-The function get_mclk_bclk_div(unsigned sampFreq, unsigned mClkFreq) can be called that returns this value if required.
+If required, the function get_mclk_bclk_div() returns this value given a sample freqency and master clock frequency.
 
 On calling the I2S master thread it's first task is to setup the hardware resources into a configuration suitable for I2S operation.
 
@@ -75,7 +75,12 @@ MCLK ----> CB1
             |
             L-----------> Data Port[0..n-1]
 
-Once the ports have been setup the main I2S I/O loop is called.  Firstly this deals with the startup case.
+Once the ports have been setup the main I2S I/O loop is called.  Firstly this deals with the startup case by setting up timed input/outputs on all of the data ports and the LRCLK port.  These set when the next input/output will happen.
+
+BCLK is then driven in order to clock out/in these inputs/outputs.
+
+Audio data is then sent/received over the channel, data will be left aligned in all cases.
+
 
 
 
