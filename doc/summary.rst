@@ -1,49 +1,28 @@
 I2S Digital Audio Component
 ===========================
 
-I2S is a serial link for digital audio. The I2S bus has 3 lines:
+Summary
+......
 
-   - Bit clock or serial clock (BCK)
+I2S (also known as IIS, Inter-IC Sound or Integrated Interchip Sound) is a serial bus interface for digital audio transport.
 
-   - Word clock or word select (WCK)
+The bus consists of atleast three lines: 
 
-   - Data
+   - Bit clock - also known as serial clock or (SCLK)
 
-Each I2S data line carries 2 audio channels (left and right). Additional data lines can be added for more audio channels.
+   - Word clock - also known as word select line or Left/Right clock (LRCLK)
 
-The sc_i2s module can input and output multiple stereo audio streams on multiple ports. Audio samples are sent and received on a streaming channel.
+   - Atleast one multiplexed data line
 
-module_i2s_master
------------------
+Each I2S data line carries 2 audio channels (left and right). Additional data lines(in either direction) can be added for more audio channels.
 
-This module is a single thread I2S bus master. It can transmit and receive audio data and drives the word clock and bit clock.
+Additionally a Master Clock line is used (typically 128, 256 or 512 x LRCLK
 
-It requires the following resources:
+A typical usage for this is transport of PCM audio samples to/from an external DAC/ADC or CODEC.
 
-   - 1 thread (MIPS dependant on number of inputs and outputs)
+The sc_i2s repo contains modules for both "master" (where the XMOS chip provides LRCLK and BCLK to the CODEC) and "slave" (where the CODEC provides LRCLK and BCLK to the XMOS chip) modes.
 
-   - 2 clock blocks
+The sc_i2s modules can input and output multiple stereo audio streams on multiple ports. Audio samples are sent and received on a streaming channel.
 
-   - 1 x 1-bit input port for each I2S input plus 1 for MCK
 
-   - 1 x 1-bit output port for each I2S output plus 2 for BCK and WCK
-
-   - 0.5 kB memory
-
-module_i2s_slave
-----------------
-
-This module is a single thread I2S bus slave. It can transmit and receive audio data from an external word clock and bit clock.
-
-It requires the following resources:
-
-   - 1 thread (MIPS dependant on number of inputs and outputs)
-
-   - 1 clock block
-
-   - 1 x 1-bit input port for each I2S input plus 2 for BCK and WCK
-
-   - 1 x 1-bit output port for each I2S output
-
-   - 0.5 kB memory
 
