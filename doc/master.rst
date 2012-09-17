@@ -1,5 +1,5 @@
-I2S Master
-..........
+I2S Master (module_i2s_master)
+.............................
 
 This module is an I2S master transmitter and receiver in a single thread. It sends and receives samples over a channel transmits/receives audio over I2S. It can send and receive multiple I2S links on separate ports.
 
@@ -7,8 +7,8 @@ As a master it drives the bit clock (BCLK) and LR clock (LRCLK) on output ports.
 
 Note, the module assumes one LR Clock for input and output data.
 
-module_i2s_master
------------------
+Resource Requirements
+----------------------
 
 This module is a single thread I2S bus master. It can transmit and receive audio data and drives the word clock and bit clock.
 
@@ -31,7 +31,7 @@ Hardware Requirements
 This module can be used with any audio DAC/ADC/CODEC that supports the I2S standard.  Please see example applications for recommended evaluation platforms. 
 
 
-Desciption/Operation
+Description/Operation
 --------------------
 
 The I2S master component runs in a single thread.  On calling the I2S master thread it's first task is to setup the hardware resources into a configuration suitable for I2S operation.
