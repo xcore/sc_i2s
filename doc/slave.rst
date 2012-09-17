@@ -5,6 +5,33 @@ This module is an I2S slave transmitter and receiver in a single thread. It send
 
 As a slave it is driven by the bit clock (BCK) and word clock (WCK) on input ports.
 
+module_i2s_slave
+----------------
+
+This module is a single thread I2S bus slave. It can transmit and receive audio data from an external word clock and bit clock.
+
+It requires the following resources:
+
+   - 1 thread (MIPS dependant on number of inputs and outputs)
+
+   - 1 clock block
+
+   - 1 x 1-bit input port for each I2S input plus 2 for BCK and WCK
+
+   - 1 x 1-bit output port for each I2S output
+
+   - 0.5 kB memory
+
+Hardware Requirements
+---------------------
+
+This module can be used with any audio CODEC that supports the I2S standard. 
+
+Component Description
+---------------------
+
+
+
 API
 ===
 
