@@ -34,7 +34,29 @@ This module can be used with any audio DAC/ADC/CODEC that supports the I2S stand
 Description/Operation
 --------------------
 
-The I2S master component runs in a single thread.  On calling the I2S master thread it's first task is to setup the hardware resources into a configuration suitable for I2S operation.
+The I2S master component runs in a single thread.  This thread takes the following parameters (see API for details):
+
+    - A structure containing the required hardware resources (i.e. clock-blocks and ports)
+
+    - A streaming channel end for communcation of data to/from the I2S thread
+
+    - A master clock to bit clock divide value (typically 2, 4 or 8)
+
+Typically the device value passed into the function is 2, 4 or 8.  This can be calulated as follows:
+
+divide = MCLK Frequency / (Sample Frequency * 64)
+
+For example for a MCLK frequency of 24.576MHz and desired sample freqency of 48kHz:
+
+    24.576 / (48000 * 64) = 8 
+
+And for 96kHz:
+
+    24.576 / (96000 * 64) = 4
+
+The function get_mclk_bclk_div(unsigned sampFreq, unsigned mClkFreq) can be called that returns this value if required.
+
+On calling the I2S master thread it's first task is to setup the hardware resources into a configuration suitable for I2S operation.
 
 One clock block is clocked from the master clock (MCLK port).  This clock block is then used to clock the BCLK port.
 
@@ -54,6 +76,7 @@ MCLK ----> CB1
             L-----------> Data Port[0..n-1]
 
 Once the ports have been setup the main I2S I/O loop is called.  Firstly this deals with the startup case.
+
 
 
 API
