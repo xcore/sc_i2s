@@ -18,11 +18,11 @@ APP_NAME =
 # If the variable XCC_MAP_FLAGS is set it overrides the flags passed to
 # xcc for the final link (mapping) stage.
 
-XCC_FLAGS = -DI2S_MASTER_NUM_IN=3 -DI2S_MASTER_NUM_OUT=4 -O3 -Wall
+XCC_FLAGS = -DI2S_MASTER_NUM_CHANS_ADC=6 -DI2S_MASTER_NUM_CHANS_DAC=8 -O3 -Wall
 
 # The USED_MODULES variable lists other module used by the application.
 
-USED_MODULES = module_i2c_master module_i2s_master
+USED_MODULES = module_i2c_master module_i2s_master module_i2s_master_example
 
 
 #=============================================================================

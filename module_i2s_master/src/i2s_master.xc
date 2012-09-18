@@ -1,6 +1,5 @@
 #include <xclib.h>
 #include <xs1.h>
-#include <assert.h>
 
 #include "i2s_master.h"
 
@@ -160,7 +159,7 @@ void i2s_master(struct r_i2s &r_i2s, streaming chanend c_data, unsigned mclk_bcl
 {
     if(mclk_bclk_div == 1)
     {
-        assert(mclk_bclk_div != 1);
+        // TODO 
     }
     else
     {

@@ -27,6 +27,6 @@ Issues may be submitted via the Issues tab in this github repo. Response to any 
 Required software (dependencies)
 ================================
 
-  * sc_i2c (ssh://git@github.com/xcore/sc_i2c)
+  * sc_i2c (ssh://git@github.com/xcore/sc_i2c) for example applications
   * xcommon (if using development tools earlier than 11.11.0)
 
