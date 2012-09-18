@@ -1,11 +1,3 @@
-I2S Master (module_i2s_master)
-.............................
-
-This module is an I2S master transmitter and receiver in a single thread. It sends and receives samples over a channel transmits/receives audio over I2S. It can send and receive multiple I2S links on separate ports.
-
-As a master it drives the bit clock (BCLK) and LR clock (LRCLK) on output ports. It is clocked by an external master clock (MCLK) on an input port.
-
-Note, the module assumes one LR Clock for input and output data.
 
 Resource Requirements
 ----------------------
@@ -14,15 +6,11 @@ This module is a single thread I2S bus master. It can transmit and receive audio
 
 It requires the following resources:
 
-   - 1 thread (MIPS dependant on number of inputs and outputs)
-
+   - 1 logical core (MIPS dependant on number of inputs and outputs)
    - 2 clock blocks
-
    - 1 x 1-bit input port for each I2S input plus 1 for MCLK
-
    - 1 x 1-bit output port for each I2S output plus 2 for BCLK and WCLK
-
-   - 0.5 kB memory approx
+   - approx 0.5 kB memory 
 
 
 Hardware Requirements
