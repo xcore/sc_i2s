@@ -113,18 +113,33 @@ Functions
 Example
 =======
 
-This example is designed to run on the XR-USB-AUDIO-2.0-MC board. It takes 3 stereo I2S inputs and sends them out over 4 stereo I2S outputs. I2S_MASTER_NUM_IN and I2S_MASTER_NUM_OUT are defined in the Makefile.
+The example application(s) implements a audio basic loopback on all channels (ADC to DAC).  The application resides in module_i2s_master_example.  This includes main.xc with the call to I2S master, the loopback code etc.
 
-First of all i2s_master should be included and the structure i2s_master defined.
+This is extended to operate on various boards though app_i2s_master_example_skc_l2, app_i2s_master_example_skc_su1 etc.  These include board-support resources and functionalilty such as XN files, CODEC configuration, clocking configuration, port defines etc and most importantly a Makefile.
 
-.. literalinclude:: app_xai_i2s_master_demo/src/main.xc
+.. literalinclude:: module_i2s_master_example/main.xc
+  :start-after: //::main program
+  :end-before: //::
+
+The function main() runs two threads, one which calls functions to setup the audio hardware on the board then finally the i2s_master() function.  The other calls a simple processing function.  This function simply inputs ADC data from the streaming channel and loops sends it back as ADC data over the streaming channel for all channels.
+
+The app_* folders contain implementations of audio_hw_init() and audio_hw_config().  In all cases i2s_master.h should be included and the structure i2s_master defined.
+
+.. literalinclude:: app_i2s_master_example_skc_l2/src/ports.h
   :start-after: //::declaration
   :end-before: //::
 
-The top level of this example creates the i2s_master on core 1, along with a 1KHz clock to the PLL and occupies the remaining 6 threads with computation.
 
-Core 0 runs the loopback function which reads the I2S inputs from the i2s_master thread over a streaming channel and sends them over a streaming channel back to the i2s_master thread to the I2S outputs.
+app_i2s_master_example_skc_l2
+-----------------------------
 
-.. literalinclude:: app_xai_i2s_master_demo/src/main.xc
-  :start-after: //::main program
-  :end-before: //::
+The example application is designed to run on the XP-SKC-L2 (L2 Slice Kit Core) Board in conjunction with a Audio Slice board (XA-SK-AUDIO)
+
+
+app_i2s_master_example_skc_su1
+-----------------------------
+
+The example application is designed to run on the XP-SKC-SU1 (SU1 Slice Kit Core) Board in conjunction with a Audio Slice board (XA-SK-AUDIO)
+
+
+
