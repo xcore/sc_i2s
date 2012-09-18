@@ -1,4 +1,4 @@
-I2S Master Usgae Demo Application
+I2S Master Usage Demo Application
 .................................
 
 :scope: General Use
