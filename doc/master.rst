@@ -115,7 +115,7 @@ Example
 
 The example application(s) implements a audio basic loopback on all channels (ADC to DAC).  The application resides in module_i2s_master_example.  This includes main.xc with the call to I2S master, the loopback code etc.
 
-This is extended to operate on various boards though app_i2s_master_example_skc_l2, app_i2s_master_example_skc_su1 etc.  These include board-support resources and functionalilty such as XN files, CODEC configuration, clocking configuration, port defines etc and most importantly a Makefile.
+This is extended to operate on various boards though app_i2s_master_example_skc_l2 etc.  These include board-support resources and functionalilty such as XN files, CODEC configuration, clocking configuration, port defines etc and most importantly a Makefile.
 
 .. literalinclude:: module_i2s_master_example/main.xc
   :start-after: //::main program
@@ -139,11 +139,6 @@ The example application is designed to run on the XP-SKC-L2 (L2 Slice Kit Core) 
 
 In this case audio_hw_init() initilises the I2C bus, and audio_hw_config() configures clocking and CODEC via I2C.
 
-
-app_i2s_master_example_skc_su1
------------------------------
-
-The example application is designed to run on the XP-SKC-SU1 (SU1 Slice Kit Core) Board in conjunction with a Audio Slice board (XA-SK-AUDIO)
 
 
 
