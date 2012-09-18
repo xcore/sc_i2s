@@ -75,6 +75,8 @@ struct r_i2s {
  *
  *                       Samples should then be sent in the following order:
  *                       Channel 0 (left), Channel 1 (right) ... Channel I2S_MASTER_NUM_CHAN_DAC-1, Channel I2S_MASTER_NUM_CHAN_DAC
+ *
+ * \param mclk_bclk_div Divide required for Master clock to Bit Clock frequency.  Supported values currently 2, 4, 8.                       
  */
 void i2s_master(struct r_i2s &r_i2s, streaming chanend c_data, unsigned mclk_bclk_div);
 
