@@ -133,7 +133,9 @@ The app_* folders contain implementations of audio_hw_init() and audio_hw_config
 app_i2s_master_example_skc_l2
 -----------------------------
 
-The example application is designed to run on the XP-SKC-L2 (L2 Slice Kit Core) Board in conjunction with a Audio Slice board (XA-SK-AUDIO)
+The example application is designed to run on the XP-SKC-L2 (L2 Slice Kit Core) Board in conjunction with a Audio Slice board (XA-SK-AUDIO).
+
+In this case audio_hw_init() initilises the I2C bus, and audio_hw_config() configures clocking and CODEC via I2C.
 
 
 app_i2s_master_example_skc_su1
