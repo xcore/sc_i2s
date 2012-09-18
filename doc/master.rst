@@ -42,7 +42,7 @@ The I2S master component runs in a single thread.  This thread takes the followi
 
     - A master clock to bit clock divide value (typically 2, 4 or 8)
 
-Typically the device value passed into the function is 2, 4 or 8.  This can be calulated as follows:
+Typically the device value passed into the function is 2, 4 or 8.  This can be calculated as follows:
 
 divide = MCLK Frequency / (Sample Frequency * 64)
 
@@ -57,6 +57,8 @@ And for 96kHz:
 If required, the function get_mclk_bclk_div() returns this value given a sample freqency and master clock frequency.
 
 On calling the I2S master thread it's first task is to setup the hardware resources into a configuration suitable for I2S operation.
+
+The data, LRCLK and BCLK are single bit ports setup as "buffered" ports with a transfer width of 32. This means that every input/output operation causes 32 bits of data to be transferred.
 
 One clock block is clocked from the master clock (MCLK port).  This clock block is then used to clock the BCLK port.
 
@@ -81,8 +83,9 @@ BCLK is then driven in order to clock out/in these inputs/outputs.
 
 Audio data is then sent/received over the channel, data will be left aligned in all cases.
 
+The "left" audio data is then output and input to/from the data-ports, 0 is then output to the LRCLK port.  The BCLK port is then driven with 32 clocks in order to clock out the output data and LRCLK and clock in the next input audio data samples.
 
-
+The process is then repeated for "right" audio samples with the LRCLK output being of the value 0xffffffff (i.e. 32 clocks of 1).
 
 API
 ===
@@ -90,21 +93,22 @@ API
 Symbolic constants
 ------------------
 
-.. doxygendefine:: I2S_MASTER_NUM_IN
+.. doxygendefine:: I2S_MASTER_NUM_CHANS_ADC
 
-.. doxygendefine:: I2S_MASTER_NUM_OUT
+.. doxygendefine:: I2S_MASTER_NUM_CHANS_DAC
 
-.. doxygendefine:: MCK_BCK_RATIO
 
 Structures
 ----------
 
-.. doxygenstruct:: i2s_master
+.. doxygenstruct:: r_i2s
 
 Functions
 ---------
 
 .. doxygenfunction:: i2s_master
+.. doxygenfunction:: get_mclk_bclk_div
+
 
 Example
 =======
