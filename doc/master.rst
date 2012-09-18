@@ -123,6 +123,8 @@ This is extended to operate on various boards though app_i2s_master_example_skc_
 
 The function main() runs two threads, one which calls functions to setup the audio hardware on the board then finally the i2s_master() function.  The other calls a simple processing function.  This function simply inputs ADC data from the streaming channel and loops sends it back as ADC data over the streaming channel for all channels.
 
+main.xc includes the file app_global which includes build parameters for the specific app such as master clock freqencies, sample rate etc.
+
 The app_* folders contain implementations of audio_hw_init() and audio_hw_config().  In all cases i2s_master.h should be included and the structure i2s_master defined.
 
 .. literalinclude:: app_i2s_master_example_skc_l2/src/ports.h
