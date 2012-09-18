@@ -35,7 +35,6 @@ void audio_hw_config(unsigned samFreq)
     timer t;
     unsigned time;
     unsigned tmp;
-    unsigned mClk = MCLK_FREQ;
 
     int codec_dev_id;
     unsigned char data[1] = {0};
