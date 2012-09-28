@@ -88,14 +88,14 @@ ports = {
   p_i2s_din = {
     short   = "I2S DIN",
     long    = "I2S ADC Data In",
-    arraySize = "I2S_MASTER_NUM_CHANS_ADC",
+    arraySize = swblock.params.numChansADC,
     help    = "",
     width   = 1
   },
   p_i2s_dout = {
     short   = "I2S DOUT",
     long    = "I2S DAC Data Out",
-    arraySize = "I2S_MASTER_NUM_CHANS_DAC",
+    arraySize = swblock.params.numChansDAC,
     help    = "",
     width   = 1
   }
@@ -167,7 +167,6 @@ generatedCode = {
       ${swblock.ports.p_i2s_mck},
       ${swblock.ports.p_i2s_bck},
       ${swblock.ports.p_i2s_wck},
-      ${swblock.ports.p_i2s_mck},
       ${swblock.ports.p_i2s_din},
       ${swblock.ports.p_i2s_dout}
     };
