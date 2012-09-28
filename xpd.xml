@@ -1,6 +1,13 @@
 <?xml version="1.0" ?>
 <xpd>
-    <components></components>
+    <components>
+        <component name = "I2S Master Audio Driver" type = "component" buildresults_path = "module_i2s_master/.module_i2s_master.buildinfo" scope = "General Use" path = "module_i2s_master" metainfo_path = "module_i2s_master/module_i2s_master.metainfo" local = "false" id = "module_i2s_master" description = "Component for driving Multichannel Audio I2S (Input and Output) with Codec as Slave">
+            <board>XA-SK-AUDIO</board>
+            <keyword>Audio</keyword>
+            <keyword>I2S</keyword>
+            <keyword>codec</keyword>
+        </component>
+    </components>
     <dependency repo = "sc_i2c">
         <githash>69533c451e47767a270d61241f0286a1bfd7c730</githash>
         <uri>ssh://git@github.com/xcore/sc_i2c</uri>
