@@ -45,9 +45,7 @@ configPoints =
     units   = "Hz",
     type    = "int",
     resourceUsageFlags = {"orthogonal"},
-    min = FIXME,
-    max = FIXME,
-    default = FIXME
+    default = 24576000
   },
   sampFreq = 
   {
@@ -57,9 +55,9 @@ configPoints =
     units   = "Hz",
     type    = "int",
     resourceUsageFlags = {"orthogonal"},
-    min     = FIXME,
-    max     = FIXME,
-    default = FIXME 
+    min     = 44100,
+    max     = 192000,
+    default = 48000 
   }
 }
 
@@ -120,16 +118,57 @@ channels = {
 function getConfigStatus()
   local status = "Valid Configuration"
   local issues = {}
-  if swblock.params.sampFreq > FIXME and (swblock.params.numchansDAC + swblock.params.numchansADC) > FIXME then
+  local div = masterClockFreq(sampleFreq * 64)
+
+  -- Get rid of some untrusted configs...
+
+  if((div != 2) and (div != 4) and (div != 8) then
     status = "Invalid Configuration"
-    table.insert(issues, { issues = "The requested number of channels at this sample frequency cannot be supported", suggestion = "For most simple applications this can be left as zero"}) 
-  elsif swblock.params.sampFreq > FIXME and (swblock.params.numchansDAC + swblock.params.numchansADC) > FIXME then
-    status = "Valid Configuration"
-    table.insert(issues, { issues = "The requested number of channels at this sample frequency may not work since this configuration has not yet been tested", suggestion = "For most simple applications this can be left as zero"}) 
-  else 
-    status = "Trusted Configuration"    
+    table.insert(issues, 
+    { 
+        issues = "Master clock and Sample Freqnency combination not supported", 
+        suggestion = "Change sample freqency or master clock rate"
+    })  
+    
+    return status, issues
   end
-  
+
+  -- Expect channel count multiple of two..
+
+  if(((swblock.params.numchansDAC % 2) != 0) or ((swblock.params.numchansADC% 2) != 0)) then
+    status = "Invalid Configuration"
+    table.insert(issues, 
+    { 
+        issues = "Expected channel count is not a multiple of two", 
+        suggestion = "Change number of channels"
+    })  
+    
+    return status, issues
+  end
+
+   
+  if (swblock.params.numchansDAC + swblock.params.numchansADC) > 10 then
+    status = "Invalid Configuration"
+    table.insert(issues, 
+    { 
+        issues = "The requested number of channels at this sample frequency cannot be supported", 
+        suggestion = "Reduce channel count"
+    }) 
+   
+    return status, issues
+  end
+
+  -- Trusted is 4 in 4 out (in some combo), 48000/44100 with 512x MCLK (div 8)
+
+  if ((swblock.params.numchansDAC + swblock.params.numchansADC) == 8) and
+      (div == 8) and
+      ((masterClockFreq == (512*48000)) or (masterClockFreq == (512*44100)) and
+      ((sampleFreq == 48000) || (sampleFreq == 441000)) then
+        status = "Trusted Configuration"
+  end
+
+  -- Everything else *should* be valid...
+   
   return status, issues
 end
             
@@ -138,10 +177,7 @@ end
 -------------------------------------------------------------------------------
 
 generatedCode = {
-  includes = { 
-    "app_global.h",
-    "i2c.h",
-    "xa_sk_audio_1v0.h",
+  includes = {"i2s_master.h"
   },
   globals = [[
     r_i2s i2s${swblock.id}_resources = { 
