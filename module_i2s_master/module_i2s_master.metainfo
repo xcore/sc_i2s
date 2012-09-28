@@ -139,7 +139,7 @@ function getConfigStatus()
     status = "Invalid Configuration"
     table.insert(issues, 
     { 
-        issues = "Expected channel count is not a multiple of two", 
+        issues = "Channel count is not a multiple of two", 
         suggestion = "Change number of channels"
     })  
     
