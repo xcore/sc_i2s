@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<allbuildresults>
+<buildresults component="module_i2s_master" packagename="xm-local-sc_i2s(b1d37373)" packageversion="b1d37373" toolsversion="latest">
+<buildresult>
+<configuration>
+<parameter id="numChansDAC" value="2"/>
+<parameter id="numChansADC" value="2"/>
+<parameter id="masterClockFreq" value="24576000"/>
+<parameter id="sampFreq" value="48000"/>
+</configuration>
+<resourceusage>
+<resourceusageitem id="cores" value="1"/>
+<resourceusageitem id="memory" value="0"/>
+<resourceusageitem id="codememory" value="866"/>
+<resourceusageitem id="datamemory" value="98"/>
+<resourceusageitem id="ports1bit" value="7"/>
+<resourceusageitem id="ports4bit" value="0"/>
+<resourceusageitem id="ports8bit" value="0"/>
+<resourceusageitem id="ports16bit" value="0"/>
+<resourceusageitem id="ports32bit" value="0"/>
+<resourceusageitem id="clocks" value="2"/>
+<resourceusageitem id="chanends" value="1"/>
+<resourceusageitem id="timers" value="0"/>
+</resourceusage>
+</buildresult>
+<buildresult>
+<configuration>
+<parameter id="numChansDAC" value="4"/>
+<parameter id="numChansADC" value="2"/>
+<parameter id="masterClockFreq" value="24576000"/>
+<parameter id="sampFreq" value="48000"/>
+</configuration>
+<resourceusage>
+<resourceusageitem id="cores" value="1"/>
+<resourceusageitem id="memory" value="0"/>
+<resourceusageitem id="codememory" value="866"/>
+<resourceusageitem id="datamemory" value="98"/>
+<resourceusageitem id="ports1bit" value="9"/>
+<resourceusageitem id="ports4bit" value="0"/>
+<resourceusageitem id="ports8bit" value="0"/>
+<resourceusageitem id="ports16bit" value="0"/>
+<resourceusageitem id="ports32bit" value="0"/>
+<resourceusageitem id="clocks" value="2"/>
+<resourceusageitem id="chanends" value="1"/>
+<resourceusageitem id="timers" value="0"/>
+</resourceusage>
+</buildresult>
+<buildresult>
+<configuration>
+<parameter id="numChansDAC" value="8"/>
+<parameter id="numChansADC" value="2"/>
+<parameter id="masterClockFreq" value="24576000"/>
+<parameter id="sampFreq" value="48000"/>
+</configuration>
+<resourceusage>
+<resourceusageitem id="cores" value="1"/>
+<resourceusageitem id="memory" value="0"/>
+<resourceusageitem id="codememory" value="866"/>
+<resourceusageitem id="datamemory" value="98"/>
+<resourceusageitem id="ports1bit" value="13"/>
+<resourceusageitem id="ports4bit" value="0"/>
+<resourceusageitem id="ports8bit" value="0"/>
+<resourceusageitem id="ports16bit" value="0"/>
+<resourceusageitem id="ports32bit" value="0"/>
+<resourceusageitem id="clocks" value="2"/>
+<resourceusageitem id="chanends" value="1"/>
+<resourceusageitem id="timers" value="0"/>
+</resourceusage>
+</buildresult>
+<buildresult>
+<configuration>
+<parameter id="numChansDAC" value="6"/>
+<parameter id="numChansADC" value="2"/>
+<parameter id="masterClockFreq" value="24576000"/>
+<parameter id="sampFreq" value="48000"/>
+</configuration>
+<resourceusage>
+<resourceusageitem id="cores" value="1"/>
+<resourceusageitem id="memory" value="0"/>
+<resourceusageitem id="codememory" value="866"/>
+<resourceusageitem id="datamemory" value="98"/>
+<resourceusageitem id="ports1bit" value="11"/>
+<resourceusageitem id="ports4bit" value="0"/>
+<resourceusageitem id="ports8bit" value="0"/>
+<resourceusageitem id="ports16bit" value="0"/>
+<resourceusageitem id="ports32bit" value="0"/>
+<resourceusageitem id="clocks" value="2"/>
+<resourceusageitem id="chanends" value="1"/>
+<resourceusageitem id="timers" value="0"/>
+</resourceusage>
+</buildresult>
+<buildresult>
+<configuration>
+<parameter id="numChansDAC" value="2"/>
+<parameter id="numChansADC" value="4"/>
+<parameter id="masterClockFreq" value="24576000"/>
+<parameter id="sampFreq" value="48000"/>
+</configuration>
+<resourceusage>
+<resourceusageitem id="cores" value="1"/>
+<resourceusageitem id="memory" value="0"/>
+<resourceusageitem id="codememory" value="866"/>
+<resourceusageitem id="datamemory" value="98"/>
+<resourceusageitem id="ports1bit" value="9"/>
+<resourceusageitem id="ports4bit" value="0"/>
+<resourceusageitem id="ports8bit" value="0"/>
+<resourceusageitem id="ports16bit" value="0"/>
+<resourceusageitem id="ports32bit" value="0"/>
+<resourceusageitem id="clocks" value="2"/>
+<resourceusageitem id="chanends" value="1"/>
+<resourceusageitem id="timers" value="0"/>
+</resourceusage>
+</buildresult>
+<buildresult>
+<configuration>
+<parameter id="numChansDAC" value="2"/>
+<parameter id="numChansADC" value="8"/>
+<parameter id="masterClockFreq" value="24576000"/>
+<parameter id="sampFreq" value="48000"/>
+</configuration>
+<resourceusage>
+<resourceusageitem id="cores" value="1"/>
+<resourceusageitem id="memory" value="0"/>
+<resourceusageitem id="codememory" value="866"/>
+<resourceusageitem id="datamemory" value="98"/>
+<resourceusageitem id="ports1bit" value="13"/>
+<resourceusageitem id="ports4bit" value="0"/>
+<resourceusageitem id="ports8bit" value="0"/>
+<resourceusageitem id="ports16bit" value="0"/>
+<resourceusageitem id="ports32bit" value="0"/>
+<resourceusageitem id="clocks" value="2"/>
+<resourceusageitem id="chanends" value="1"/>
+<resourceusageitem id="timers" value="0"/>
+</resourceusage>
+</buildresult>
+<buildresult>
+<configuration>
+<parameter id="numChansDAC" value="2"/>
+<parameter id="numChansADC" value="6"/>
+<parameter id="masterClockFreq" value="24576000"/>
+<parameter id="sampFreq" value="48000"/>
+</configuration>
+<resourceusage>
+<resourceusageitem id="cores" value="1"/>
+<resourceusageitem id="memory" value="0"/>
+<resourceusageitem id="codememory" value="866"/>
+<resourceusageitem id="datamemory" value="98"/>
+<resourceusageitem id="ports1bit" value="11"/>
+<resourceusageitem id="ports4bit" value="0"/>
+<resourceusageitem id="ports8bit" value="0"/>
+<resourceusageitem id="ports16bit" value="0"/>
+<resourceusageitem id="ports32bit" value="0"/>
+<resourceusageitem id="clocks" value="2"/>
+<resourceusageitem id="chanends" value="1"/>
+<resourceusageitem id="timers" value="0"/>
+</resourceusage>
+</buildresult>
+</buildresults>
+</allbuildresults>
