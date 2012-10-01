@@ -1,0 +1,25 @@
+
+
+#include "xa_sk_audio_1v0.h"
+
+//::declaration
+on stdcore[1] : struct r_i2s r_i2s =
+{
+    XS1_CLKBLK_1,
+    XS1_CLKBLK_2,
+    PORT_MCLK_IN,             // Master Clock 
+    PORT_I2S_BCLK,            // Bit Clock
+    PORT_I2S_LRCLK,           // LR Clock
+    {PORT_I2S_ADC0, PORT_I2S_ADC1},
+    {PORT_I2S_DAC0, PORT_I2S_DAC1},
+
+};
+//::
+
+/* Some extra port declarations */
+
+/* Port for I2C bus. Both SDA and SCL are on lines on same port */
+on stdcore[1] : port p_i2c = PORT_I2C;
+
+/* GPIO port */
+on stdcore[1] : out port p_gpio = PORT_GPIO;
