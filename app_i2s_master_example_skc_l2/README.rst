@@ -1,11 +1,16 @@
-I2S Master Usage Demo Application
-.................................
+I2S Master Slicekit Loopback Demo
+=================================
 
-:scope: General Use
-:description: Usage Example for module_i2s_master
-:keywords: I2S, Master, Audio
-:boards: XP-SKC-L2, XA-SK-AUDIO
+:scope: Example
+:description: Uses the I2S master in loopback mode to demonstrate usage of this component
+:keywords: Audio, I2S
+:boards: XA-SK-AUDIO
 
-Demonstration application showing usage of I2S master module to implement a simple audio loop-back.
-The application includes required CODEC config etc.
+Features
+--------
+
+   * Input stereo audio via analog jack
+   * Output stereo audio via analog jack  
+
+
 
