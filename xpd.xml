@@ -9,8 +9,9 @@
         </component>
     </components>
     <dependency repo = "sc_i2c">
-        <githash>69533c451e47767a270d61241f0286a1bfd7c730</githash>
+        <githash>ca4402ef45d14bff260c4230950cfc4d30fc801e</githash>
         <uri>ssh://git@github.com/xcore/sc_i2c</uri>
+        <version>2.1.0alpha1</version>
     </dependency>
     <dependency repo = "xcommon">
         <githash>cdcfc87c8c6047bf8d21f13222cbe9e84c6c5e01</githash>
@@ -20,6 +21,10 @@
     <docdir>doc</docdir>
     <location>git@github.com:xcore/sc_i2s</location>
     <name>sc_i2s</name>
+    <exclude_dir>app_i2s_master_demo_xai</exclude_dir>
+    <exclude_dir>app_i2s_slave_example_xai</exclude_dir>
+    <exclude_dir>module_i2s_slave</exclude_dir>
+    <exclude_dir>module_i2s_master_example</exclude_dir>
     <maintainer>davelxmos</maintainer>
     <partnumber>XM-001654-DH</partnumber>
     <release parenthash = "7e3418fcb3ba55e96181913f28b412775cfa5937" version = "1.2.0beta0" githash = "1ef3ad83d50f361b49de59963192f7ef89af038f"></release>
