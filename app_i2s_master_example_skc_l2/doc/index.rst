@@ -27,13 +27,8 @@ To setup the hardware:
     #. Connect the XTAG-2 USB debug adaptor to the XP-SKC-L2 Slicekit core board (via the supplied adaptor board)
     #. Connect the XTAG-2 to host PC (as USB extension cable can be used if desired)
     #. Switch on the power supply to the XP-SKC-L2 Slicekit Core board
-
  
-    TODO - image
-    .. figure:: images/hardware_setup.png
-        :align: center
-
-    Hardware Setup for I2S Daster Demonstration
+    TODO - IMAGE
 
 Import and Build the Application
 ++++++++++++++++++++++++++++++++
