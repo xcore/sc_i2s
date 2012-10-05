@@ -42,6 +42,6 @@ It requires the following resources:
 Performance
 +++++++++++
 
-The performance the module can achieve depends on the number of master clocks, the number of channels served and the sample frequency selected. A rough guide to performance parameters is given below.
+The performance the module can achieve depends on the number on the number of channels served, the sample frequency desired and the master clock frequency (or divide) used. 
 
-FIXME ROSS
+Currently the component is expected to achieve 10 channels input and output at 192kHz (based on a 512*48000Hz master clock)

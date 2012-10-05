@@ -21,14 +21,6 @@ This application shows a very simple output to input loopback. An analog audio s
    * Package: sc_i2s
    * Application: module_i2s_master_example
 
-Application Demo
-++++++++++++++++
-
-This application eployes the XA-SK-SDRAM memory Slice Card in addition to the XA-SK-AUDIO Slice Card to implement the recording of audio data input via I2S which is then buffered in the SDRAM in order to apply a reverberation effect. The resulting processed audio is output via the I2S. 
-
-   * Package: sw_audio_effects
-   * Application: app_slicekit_reverb
-
 Hardware Requirements
 =====================
 
