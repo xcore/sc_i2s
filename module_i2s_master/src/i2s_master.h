@@ -59,7 +59,7 @@ typedef struct r_i2s {
 
     in buffered port:32 din[I2S_MASTER_NUM_PORTS_ADC]; /**< Array of I2S_MASTER_NUM_IN x 1-bit ports for audio input */
     out buffered port:32 dout[I2S_MASTER_NUM_PORTS_DAC]; /**< Array of I2S_MASTER_NUM_OUT x 1-bit ports for audio output */
-} r_i2s ;
+} i2s_resources ;
 
 /** I2S Master function
  *

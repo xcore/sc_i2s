@@ -3,7 +3,7 @@
 #include "xa_sk_audio_1v0.h"
 
 //::declaration
-on stdcore[1] : struct r_i2s r_i2s =
+on stdcore[1] :  i2s_resources r_i2s =
 {
     XS1_CLKBLK_1,
     XS1_CLKBLK_2,

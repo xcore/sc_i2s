@@ -27,8 +27,14 @@ To setup the hardware:
     #. Connect the XTAG-2 USB debug adaptor to the XP-SKC-L2 Slicekit core board (via the supplied adaptor board)
     #. Connect the XTAG-2 to host PC (as USB extension cable can be used if desired)
     #. Switch on the power supply to the XP-SKC-L2 Slicekit Core board
- 
-    TODO - IMAGE
+    #. Attach an audio source (such as an MP3 player) to input 1/2 via the 3.5mm audio jack.
+    #. Attach speakers or headphones to output 1/2 via the 3.5mm audio jack.
+
+.. figure:: images/hw_setup.png
+   :width: 300px
+   :align: center
+
+   Hardware Setup for XA-SK-AUDIO demo (I2S master)
 
 Import and Build the Application
 ++++++++++++++++++++++++++++++++
@@ -47,21 +53,13 @@ Run the Application
 Now that the application has been compiled, the next step is to run it on the Slicekit Core Board using the tools to load the application over JTAG (via the XTAG2 and Xtag Adaptor card) into the xCORE multicore microcontroller.
 
    #. Click on the ``Run`` icon (the white arrow in the green circle).
+   #. The application will now be running and providing a loopback functionality. Listen for the output via headphones or speakers. If the audio source is changed to input 3/4, the output will be available on output 3/4. There is no need to restart the application, just switch the audio connections over.
+   #. Terminating the application will cause the loopback to stop.
 
-Audio Connectivity
-++++++++++++++++++
+Next Steps
+++++++++++
 
-The application will now be running and providing a loopback functionality.  In order to observe this attach an audio source (such as an MP3 player) to input 1/2 via the 3.5mm audio jack.
-Attaching speakers or headphones to output 1/2 via the 3.5mm audio jack should result in the input being heard.
-
-The same is true for inputs 3/4 to outputs 3/4.
-
-Terminating the application will cause the loopback to stop.
-
-Suggested Next Steps
-++++++++++++++++++++
-
-Examine the code, specically the processing() fuction, this provides the loopback.  Experiment with modifying the audio signal (such as shifting the samples down to reduce the volume on one channel).
+   #. Examine the code for the processing() fuction, this provides the loopback.  Experiment with modifying the audio signal (such as shifting the samples down to reduce the volume on one channel).
 
 Then consider experimenting with adding the audio DSP modules/functions in sw_audio_effects.
 

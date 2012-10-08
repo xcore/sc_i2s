@@ -22,7 +22,7 @@ XCC_FLAGS = -O3 -Wall -DSDA_HIGH=2 -DSCL_HIGH=1 -DI2S_MASTER_NUM_CHANS_ADC=4 -DI
 
 # The USED_MODULES variable lists other module used by the application.
 
-USED_MODULES = module_i2c_single_port module_i2s_master module_i2s_master_example
+USED_MODULES = module_i2c_single_port module_i2s_master module_i2s_loopback
 
 
 #=============================================================================

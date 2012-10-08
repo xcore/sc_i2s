@@ -1,0 +1,79 @@
+-------------------------------------------------------------------------------
+-- Descriptive metadata
+-------------------------------------------------------------------------------
+
+componentName = "I2S Audio Driver"
+componentFullName = ""
+alternativeNames = { }
+componentDescription = "I2S Driver component for audio input and output" 
+componentVersion = "1v0"
+
+-------------------------------------------------------------------------------
+-- Parameter descriptions.
+-------------------------------------------------------------------------------
+
+configPoints =
+{
+  numChansDAC =
+  {
+    short   = "DAC Channels",
+    long    = "Number of DAC Audio Channels (output)",
+    units   = "",
+    help = "",
+    type    = "int",
+    resourceUsageFlags = {"orthogonal"},
+    define = "I2S_MASTER_NUM_CHANS_DAC",
+    options = {2,4,6,8},
+    default = 2
+  },
+  numChansADC =
+  {
+    short   = "ADC Channels",
+    long    = "Number of ADC Audio Channels (input)",
+    help = "",
+    units   = "",
+    type    = "int",
+    resourceUsageFlags = {"orthogonal"},
+    define = "I2S_MASTER_NUM_CHANS_ADC",
+    options = {2,4,6,8},
+    default = 2
+  },
+
+}
+
+derivedValues = {  
+}
+
+ports = {
+}
+
+channels = {
+  c_i2s_data = {
+    short = "I2S Data Channel",
+    type = "streaming",
+    long  = "Channel to exchange data with the I2S driver component",
+    help  = "",
+  },
+}        
+
+function getConfigStatus()
+  local status = "Valid Configuration"
+  local issues = {}
+  return status, issues
+end
+            
+-------------------------------------------------------------------------------
+-- Source generation functions
+-------------------------------------------------------------------------------
+
+generatedCode = {
+  includes = {
+    "processing.h"
+  },
+  globals = [[
+  ]],
+  body = [[
+       processing(${swblock.chanends.c_i2s_data);
+  ]]
+}
+
