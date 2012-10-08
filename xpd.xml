@@ -22,9 +22,6 @@
     <exclude_dir>app_i2s_master_demo_xai</exclude_dir>
     <exclude_dir>app_i2s_slave_example_xai</exclude_dir>
     <exclude_dir>module_i2s_slave</exclude_dir>
-    <exclude_dir>module_i2s_master_example</exclude_dir>
-    <exclude_dir>app_i2s_master_example</exclude_dir>
-    <exclude_dir>app_i2s_master_example_skc_l2</exclude_dir>
     <location>git@github.com:xcore/sc_i2s</location>
     <name>sc_i2s</name>
     <maintainer>davelxmos</maintainer>
