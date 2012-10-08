@@ -63,6 +63,8 @@ Suggested Next Steps
 
 Examine the code, specically the processing() fuction, this provides the loopback.  Experiment with modifying the audio signal (such as shifting the samples down to reduce the volume on one channel).
 
-Then consider experimenting with the audio DSP modules/functions in sw_audio_effects.
+Then consider experimenting with adding the audio DSP modules/functions in sw_audio_effects.
+
+
 
 
