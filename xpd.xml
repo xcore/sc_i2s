@@ -31,6 +31,8 @@
         <uri>ssh://git@github.com/xcore/xcommon</uri>
     </dependency>
     <description>I2S Digital Audio Component</description>
+    <xsoftip_exclude>app_i2s_master_demo_xai</xsoftip_exclude>
+    <xsoftip_exclude>app_i2s_slave_example_xai</xsoftip_exclude>
     <docdir>doc</docdir>
     <docdir>app_slicekit_i2s_master_demo/doc</docdir>
     <location>git@github.com:xcore/sc_i2s</location>
