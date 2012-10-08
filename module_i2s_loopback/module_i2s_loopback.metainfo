@@ -2,10 +2,10 @@
 -- Descriptive metadata
 -------------------------------------------------------------------------------
 
-componentName = "I2S Audio Driver"
+componentName = "I2S Loopback"
 componentFullName = ""
 alternativeNames = { }
-componentDescription = "I2S Driver component for audio input and output" 
+componentDescription = "I2S Loopback for use in testing I2S Driver and external circuitry" 
 componentVersion = "1v0"
 
 -------------------------------------------------------------------------------
@@ -37,7 +37,7 @@ configPoints =
     define = "I2S_MASTER_NUM_CHANS_ADC",
     options = {2,4,6,8},
     default = 2
-  },
+  }
 
 }
 
