@@ -19,9 +19,10 @@
     </dependency>
     <description>I2S Digital Audio Component</description>
     <docdir>doc</docdir>
-    <exclude_dir>app_i2s_master_demo_xai</exclude_dir>
-    <exclude_dir>app_i2s_slave_example_xai</exclude_dir>
-    <exclude_dir>module_i2s_slave</exclude_dir>
+    <docdir>app_slicekit_i2s_master_demo/doc</docdir>
+    <xsoftip_exclude>app_i2s_master_demo_xai</xsoftip_exclude>
+    <xsoftip_exclude>app_i2s_slave_example_xai</xsoftip_exclude>
+    <xsoftip_exclude>module_i2s_slave</xsoftip_exclude>
     <location>git@github.com:xcore/sc_i2s</location>
     <name>sc_i2s</name>
     <maintainer>davelxmos</maintainer>
