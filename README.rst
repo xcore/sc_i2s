@@ -1,7 +1,7 @@
 I2S Digital Audio Component
 ...........................
 
-:Latest release: 1.4.0alpha0
+:Latest release: 1.4.0alpha1
 :Maintainer: davelxmos
 :Description: I2S Digital Audio Component
 
