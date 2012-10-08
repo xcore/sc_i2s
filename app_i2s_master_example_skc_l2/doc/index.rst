@@ -51,7 +51,7 @@ Now that the application has been compiled, the next step is to run it on the Sl
 Audio Connectivity
 ++++++++++++++++++
 
-The application will now be running and providing a loopback functionality.  In order to observe this attach an audio source (such as an MP3 player) to input 1/2 via a the 3.5mm audio jack.
+The application will now be running and providing a loopback functionality.  In order to observe this attach an audio source (such as an MP3 player) to input 1/2 via the 3.5mm audio jack.
 Attaching speakers or headphones to output 1/2 via the 3.5mm audio jack should result in the input being heard.
 
 The same is true for inputs 3/4 to outputs 3/4.
