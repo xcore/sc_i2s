@@ -31,8 +31,6 @@
         <uri>ssh://git@github.com/xcore/xcommon</uri>
     </dependency>
     <description>I2S Digital Audio Component</description>
-    <xsoftip_exclude>app_i2s_master_demo_xai</xsoftip_exclude>
-    <xsoftip_exclude>app_i2s_slave_example_xai</xsoftip_exclude>
     <docdir>doc</docdir>
     <docdir>app_slicekit_i2s_master_demo/doc</docdir>
     <location>git@github.com:xcore/sc_i2s</location>
@@ -49,8 +47,8 @@
     <vendor>XMOS</vendor>
     <xcore_repo>sc_i2s</xcore_repo>
     <xpd_version>1.0</xpd_version>
-    <xsoftip_exclude>app_i2s_master_demo_xai</xsoftip_exclude>
-    <xsoftip_exclude>app_i2s_slave_example_xai</xsoftip_exclude>
-    <xsoftip_exclude>module_i2s_slave</xsoftip_exclude>
+    <exclude_dir>app_i2s_master_demo_xai</exclude_dir>
+    <exclude_dir>app_i2s_slave_example_xai</exclude_dir>
+    <exclude_dir>module_i2s_slave</exclude_dir>
     <scope>example</scope>
 </xpd>
