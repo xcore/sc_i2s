@@ -155,7 +155,7 @@ unsigned get_mclk_bclk_div(unsigned sampFreq, unsigned mClkFreq)
     return  mClkFreq / ( sampFreq * 64 );
 }
 
-void i2s_master(struct r_i2s &r_i2s, streaming chanend c_data, unsigned mclk_bclk_div)
+void i2s_master(r_i2s &r_i2s, streaming chanend c_data, unsigned mclk_bclk_div)
 {
     if(mclk_bclk_div == 1)
     {

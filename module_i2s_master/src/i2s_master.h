@@ -49,7 +49,7 @@
 
 /** Resources for I2S_MASTER
  */
-typedef struct r_i2s {
+typedef struct i2s_resources {
     clock cb1; /**< Clock block for MCK */
     clock cb2; /**< Clock block for BCK */
 
@@ -59,7 +59,7 @@ typedef struct r_i2s {
 
     in buffered port:32 din[I2S_MASTER_NUM_PORTS_ADC]; /**< Array of I2S_MASTER_NUM_IN x 1-bit ports for audio input */
     out buffered port:32 dout[I2S_MASTER_NUM_PORTS_DAC]; /**< Array of I2S_MASTER_NUM_OUT x 1-bit ports for audio output */
-} i2s_resources ;
+} r_i2s ;
 
 /** I2S Master function
  *
@@ -78,7 +78,7 @@ typedef struct r_i2s {
  *
  * \param mclk_bclk_div Divide required for Master clock to Bit Clock frequency.  Supported values currently 2, 4, 8.                       
  */
-void i2s_master(struct r_i2s &r_i2s, streaming chanend c_data, unsigned mclk_bclk_div);
+void i2s_master(r_i2s &r_i2s, streaming chanend c_data, unsigned mclk_bclk_div);
 
 /** 
  * 

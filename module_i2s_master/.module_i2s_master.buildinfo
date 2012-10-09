@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <allbuildresults>
-<buildresults component="module_i2s_master" packagename="xm-local-sc_i2s(b1d37373)" packageversion="b1d37373" toolsversion="latest">
+<buildresults component="module_i2s_master" packagename="xm-local-sc_i2s(92c83735)" packageversion="92c83735" toolsversion="latest">
 <buildresult>
 <configuration>
 <parameter id="numChansDAC" value="2"/>

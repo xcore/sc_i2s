@@ -158,8 +158,7 @@ end
 -------------------------------------------------------------------------------
 
 generatedCode = {
-  includes = {"i2s_master.h"
-  },
+  includes = {"i2s_master.h"},
   globals = [[
     r_i2s i2s${swblock.id}_resources = { 
       ${swblock.clocks[0]}, 
