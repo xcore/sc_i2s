@@ -32,7 +32,7 @@ int main()
 
             audio_hw_config(SAMP_FREQ);           
             
-            i2s_master(r_i2s, c_data, mclk_bclk_div);
+            i2s_master(i2s_resources, c_data, mclk_bclk_div);
         }
 
         on stdcore[1] : processing(c_data);
