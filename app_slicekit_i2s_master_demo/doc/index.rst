@@ -60,8 +60,7 @@ Next Steps
 ++++++++++
 
    #. Examine the code for the processing() fuction, this provides the loopback.  Experiment with modifying the audio signal (such as shifting the samples down to reduce the volume on one channel).
-
-Then consider experimenting with adding the audio DSP modules/functions in sw_audio_effects.
+   #. Consider experimenting with adding the audio DSP modules/functions from the xSOFTip library such as the biquad filter and audio loudness components.
 
 
 
