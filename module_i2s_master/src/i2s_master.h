@@ -11,6 +11,11 @@
 #ifndef _i2s_master_h_
 #define _i2s_master_h_
 
+#ifdef __i2s_master_conf_h_exists__
+#include "i2s_master_conf.h"
+#endif
+
+#include <xs1.h>
 
 #ifndef I2S_MASTER_NUM_CHANS_ADC
 /** Number of ADC audio channels

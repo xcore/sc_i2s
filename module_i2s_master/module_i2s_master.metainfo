@@ -178,3 +178,4 @@ generatedCode = {
   ]]
 }
 
+files = {["module_i2s_master/i2s_master_conf_example.h"] = "src/i2s_master_conf.h"}

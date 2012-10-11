@@ -10,6 +10,10 @@
 #ifndef _I2S_SLAVE_H_
 #define _I2S_SLAVE_H_
 
+#ifdef __i2s_slave_conf_h_exists__
+#include "i2s_slave_conf.h"
+#endif
+
 #ifndef I2S_SLAVE_NUM_IN
 /** Number of input ports, each carries two channels of audio
  */
