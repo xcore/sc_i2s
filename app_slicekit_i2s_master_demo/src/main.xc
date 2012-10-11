@@ -9,7 +9,7 @@
 #include <print.h>
 #include <stdlib.h>
 #include "i2c.h"
-#include "processing.h"
+#include "i2s_loopback.h"
 
 #include "i2s_master.h"
 #include "app_global.h"

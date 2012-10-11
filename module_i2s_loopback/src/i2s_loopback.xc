@@ -1,5 +1,4 @@
-
-#include "app_global.h"
+#include "i2s_master.h"
 
 void processing(streaming chanend c)
 {
