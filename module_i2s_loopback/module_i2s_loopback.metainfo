@@ -73,7 +73,7 @@ generatedCode = {
   globals = [[
   ]],
   body = [[
-       processing(${swblock.chanends.c_i2s_data);
+       processing(${swblock.chanends.c_i2s_data});
   ]]
 }
 

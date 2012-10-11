@@ -2,7 +2,7 @@
 # compiled for. It either refers to an XN file in the source directories
 # or a valid argument for the --target option when compiling.
 
-TARGET = xp-skc-l2.xn
+TARGET = SLICEKIT-L2
 
 # The APP_NAME variable determines the name of the final .xe file. It should
 # not include the .xe postfix. If left blank the name will default to
@@ -18,7 +18,7 @@ APP_NAME =
 # If the variable XCC_MAP_FLAGS is set it overrides the flags passed to
 # xcc for the final link (mapping) stage.
 
-XCC_FLAGS = -O3 -Wall -DSDA_HIGH=2 -DSCL_HIGH=1 -DI2S_MASTER_NUM_CHANS_ADC=4 -DI2S_MASTER_NUM_CHANS_DAC=4 
+XCC_FLAGS = -O3 -Wall
 
 # The USED_MODULES variable lists other module used by the application.
 

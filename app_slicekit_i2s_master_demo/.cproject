@@ -162,16 +162,17 @@ targetID="org.eclipse.cdt.build.MakeTargetBuilder">
                                     <listOptionValue builtIn="false" value='&quot;${XMOS_DOC_PATH}/../target/include/c++/4.2.1&quot;' />
                                     <listOptionValue builtIn="false" value='&quot;${XMOS_DOC_PATH}/../target/include/c++/4.2.1/xcore-xmos-elf&quot;' />
                                     <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_slicekit_i2s_master_demo/.build/m_i2s_loopback}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_slicekit_i2s_master_demo/.build/src}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_slicekit_i2s_master_demo/.build/m_i2s_master}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_slicekit_i2s_master_demo/src}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_slicekit_i2s_master_demo}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_i2s_loopback/src}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_i2c_single_port}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_slicekit_i2s_master_demo/.build/m_i2s_loopback/src}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_slicekit_i2s_master_demo/.build}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_slicekit_i2s_master_demo/.build/m_i2c_single_port}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_slicekit_i2s_master_demo/bin}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_i2s_loopback}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_slicekit_i2s_master_demo/.build/m_i2s_master}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_slicekit_i2s_master_demo/.build/src}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_slicekit_i2s_master_demo/.build/m_i2s_master/src}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_i2s_master/src}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_i2s_master}&quot;' />
@@ -183,16 +184,17 @@ targetID="org.eclipse.cdt.build.MakeTargetBuilder">
                                 <inputType id = "com.xmos.cdt.xc.compiler.input.10248507" name="XC Sources" superClass="com.xmos.cdt.xc.compiler.input" />
                                 <option id = "gnu.c.compiler.option.include.paths.54016949" valueType="includePath" superClass="gnu.c.compiler.option.include.paths">
                                     <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_slicekit_i2s_master_demo/.build/m_i2s_loopback}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_slicekit_i2s_master_demo/.build/src}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_slicekit_i2s_master_demo/.build/m_i2s_master}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_slicekit_i2s_master_demo/src}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_slicekit_i2s_master_demo}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_i2s_loopback/src}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_i2c_single_port}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_slicekit_i2s_master_demo/.build/m_i2s_loopback/src}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_slicekit_i2s_master_demo/.build}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_slicekit_i2s_master_demo/.build/m_i2c_single_port}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_slicekit_i2s_master_demo/bin}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_i2s_loopback}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_slicekit_i2s_master_demo/.build/m_i2s_master}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_slicekit_i2s_master_demo/.build/src}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_slicekit_i2s_master_demo/.build/m_i2s_master/src}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_i2s_master/src}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_i2s_master}&quot;' />
@@ -205,16 +207,17 @@ targetID="org.eclipse.cdt.build.MakeTargetBuilder">
                             <tool id = "com.xmos.cdt.xc.compiler.base.80742049" name="com.xmos.cdt.xc.compiler.base" superClass="com.xmos.cdt.xc.compiler.base">
                                 <option id = "gnu.c.compiler.option.include.paths.99945618" valueType="includePath" superClass="gnu.c.compiler.option.include.paths">
                                     <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_slicekit_i2s_master_demo/.build/m_i2s_loopback}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_slicekit_i2s_master_demo/.build/src}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_slicekit_i2s_master_demo/.build/m_i2s_master}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_slicekit_i2s_master_demo/src}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_slicekit_i2s_master_demo}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_i2s_loopback/src}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_i2c_single_port}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_slicekit_i2s_master_demo/.build/m_i2s_loopback/src}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_slicekit_i2s_master_demo/.build}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_slicekit_i2s_master_demo/.build/m_i2c_single_port}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_slicekit_i2s_master_demo/bin}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_i2s_loopback}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_slicekit_i2s_master_demo/.build/m_i2s_master}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_slicekit_i2s_master_demo/.build/src}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_slicekit_i2s_master_demo/.build/m_i2s_master/src}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_i2s_master/src}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_i2s_master}&quot;' />
@@ -225,16 +228,17 @@ targetID="org.eclipse.cdt.build.MakeTargetBuilder">
                                 </option>
                                 <option id = "com.xmos.c.compiler.option.include.paths.86207011" valueType="includePath" superClass="com.xmos.c.compiler.option.include.paths">
                                     <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_slicekit_i2s_master_demo/.build/m_i2s_loopback}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_slicekit_i2s_master_demo/.build/src}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_slicekit_i2s_master_demo/.build/m_i2s_master}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_slicekit_i2s_master_demo/src}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_slicekit_i2s_master_demo}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_i2s_loopback/src}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_i2c_single_port}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_slicekit_i2s_master_demo/.build/m_i2s_loopback/src}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_slicekit_i2s_master_demo/.build}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_slicekit_i2s_master_demo/.build/m_i2c_single_port}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_slicekit_i2s_master_demo/bin}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_i2s_loopback}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_slicekit_i2s_master_demo/.build/m_i2s_master}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_slicekit_i2s_master_demo/.build/src}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_slicekit_i2s_master_demo/.build/m_i2s_master/src}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_i2s_master/src}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_i2s_master}&quot;' />
@@ -247,16 +251,17 @@ targetID="org.eclipse.cdt.build.MakeTargetBuilder">
                             <tool id = "com.xmos.cdt.c.compiler.base.93883032" name="com.xmos.cdt.c.compiler.base" superClass="com.xmos.cdt.c.compiler.base">
                                 <option id = "gnu.c.compiler.option.include.paths.99415440" valueType="includePath" superClass="gnu.c.compiler.option.include.paths">
                                     <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_slicekit_i2s_master_demo/.build/m_i2s_loopback}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_slicekit_i2s_master_demo/.build/src}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_slicekit_i2s_master_demo/.build/m_i2s_master}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_slicekit_i2s_master_demo/src}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_slicekit_i2s_master_demo}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_i2s_loopback/src}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_i2c_single_port}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_slicekit_i2s_master_demo/.build/m_i2s_loopback/src}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_slicekit_i2s_master_demo/.build}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_slicekit_i2s_master_demo/.build/m_i2c_single_port}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_slicekit_i2s_master_demo/bin}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_i2s_loopback}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_slicekit_i2s_master_demo/.build/m_i2s_master}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_slicekit_i2s_master_demo/.build/src}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_slicekit_i2s_master_demo/.build/m_i2s_master/src}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_i2s_master/src}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_i2s_master}&quot;' />
@@ -267,16 +272,17 @@ targetID="org.eclipse.cdt.build.MakeTargetBuilder">
                                 </option>
                                 <option id = "com.xmos.c.compiler.option.include.paths.56829527" valueType="includePath" superClass="com.xmos.c.compiler.option.include.paths">
                                     <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_slicekit_i2s_master_demo/.build/m_i2s_loopback}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_slicekit_i2s_master_demo/.build/src}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_slicekit_i2s_master_demo/.build/m_i2s_master}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_slicekit_i2s_master_demo/src}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_slicekit_i2s_master_demo}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_i2s_loopback/src}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_i2c_single_port}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_slicekit_i2s_master_demo/.build/m_i2s_loopback/src}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_slicekit_i2s_master_demo/.build}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_slicekit_i2s_master_demo/.build/m_i2c_single_port}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_slicekit_i2s_master_demo/bin}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_i2s_loopback}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_slicekit_i2s_master_demo/.build/m_i2s_master}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_slicekit_i2s_master_demo/.build/src}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_slicekit_i2s_master_demo/.build/m_i2s_master/src}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_i2s_master/src}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_i2s_master}&quot;' />
@@ -289,16 +295,17 @@ targetID="org.eclipse.cdt.build.MakeTargetBuilder">
                             <tool id = "com.xmos.cdt.cpp.compiler.base.96674092" name="com.xmos.cdt.cpp.compiler.base" superClass="com.xmos.cdt.cpp.compiler.base">
                                 <option id = "gnu.c.compiler.option.include.paths.43883337" valueType="includePath" superClass="gnu.c.compiler.option.include.paths">
                                     <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_slicekit_i2s_master_demo/.build/m_i2s_loopback}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_slicekit_i2s_master_demo/.build/src}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_slicekit_i2s_master_demo/.build/m_i2s_master}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_slicekit_i2s_master_demo/src}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_slicekit_i2s_master_demo}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_i2s_loopback/src}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_i2c_single_port}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_slicekit_i2s_master_demo/.build/m_i2s_loopback/src}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_slicekit_i2s_master_demo/.build}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_slicekit_i2s_master_demo/.build/m_i2c_single_port}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_slicekit_i2s_master_demo/bin}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_i2s_loopback}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_slicekit_i2s_master_demo/.build/m_i2s_master}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_slicekit_i2s_master_demo/.build/src}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_slicekit_i2s_master_demo/.build/m_i2s_master/src}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_i2s_master/src}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_i2s_master}&quot;' />
@@ -309,16 +316,17 @@ targetID="org.eclipse.cdt.build.MakeTargetBuilder">
                                 </option>
                                 <option id = "com.xmos.c.compiler.option.include.paths.39934935" valueType="includePath" superClass="com.xmos.c.compiler.option.include.paths">
                                     <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_slicekit_i2s_master_demo/.build/m_i2s_loopback}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_slicekit_i2s_master_demo/.build/src}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_slicekit_i2s_master_demo/.build/m_i2s_master}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_slicekit_i2s_master_demo/src}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_slicekit_i2s_master_demo}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_i2s_loopback/src}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_i2c_single_port}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_slicekit_i2s_master_demo/.build/m_i2s_loopback/src}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_slicekit_i2s_master_demo/.build}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_slicekit_i2s_master_demo/.build/m_i2c_single_port}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_slicekit_i2s_master_demo/bin}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_i2s_loopback}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_slicekit_i2s_master_demo/.build/m_i2s_master}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_slicekit_i2s_master_demo/.build/src}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_slicekit_i2s_master_demo/.build/m_i2s_master/src}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_i2s_master/src}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_i2s_master}&quot;' />
@@ -331,16 +339,17 @@ targetID="org.eclipse.cdt.build.MakeTargetBuilder">
                             <tool id = "com.xmos.cdt.core.assembler.base.63295536" name="com.xmos.cdt.core.assembler.base" superClass="com.xmos.cdt.core.assembler.base">
                                 <option id = "gnu.c.compiler.option.include.paths.60991402" valueType="includePath" superClass="gnu.c.compiler.option.include.paths">
                                     <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_slicekit_i2s_master_demo/.build/m_i2s_loopback}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_slicekit_i2s_master_demo/.build/src}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_slicekit_i2s_master_demo/.build/m_i2s_master}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_slicekit_i2s_master_demo/src}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_slicekit_i2s_master_demo}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_i2s_loopback/src}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_i2c_single_port}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_slicekit_i2s_master_demo/.build/m_i2s_loopback/src}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_slicekit_i2s_master_demo/.build}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_slicekit_i2s_master_demo/.build/m_i2c_single_port}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_slicekit_i2s_master_demo/bin}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_i2s_loopback}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_slicekit_i2s_master_demo/.build/m_i2s_master}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_slicekit_i2s_master_demo/.build/src}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_slicekit_i2s_master_demo/.build/m_i2s_master/src}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_i2s_master/src}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_i2s_master}&quot;' />
@@ -351,16 +360,17 @@ targetID="org.eclipse.cdt.build.MakeTargetBuilder">
                                 </option>
                                 <option id = "com.xmos.c.compiler.option.include.paths.8090280" valueType="includePath" superClass="com.xmos.c.compiler.option.include.paths">
                                     <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_slicekit_i2s_master_demo/.build/m_i2s_loopback}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_slicekit_i2s_master_demo/.build/src}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_slicekit_i2s_master_demo/.build/m_i2s_master}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_slicekit_i2s_master_demo/src}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_slicekit_i2s_master_demo}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_i2s_loopback/src}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_i2c_single_port}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_slicekit_i2s_master_demo/.build/m_i2s_loopback/src}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_slicekit_i2s_master_demo/.build}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_slicekit_i2s_master_demo/.build/m_i2c_single_port}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_slicekit_i2s_master_demo/bin}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_i2s_loopback}&quot;' />
-<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_slicekit_i2s_master_demo/.build/m_i2s_master}&quot;' />
+<listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_slicekit_i2s_master_demo/.build/src}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/app_slicekit_i2s_master_demo/.build/m_i2s_master/src}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_i2s_master/src}&quot;' />
 <listOptionValue builtIn="false" value='&quot;${workspace_loc:/module_i2s_master}&quot;' />
