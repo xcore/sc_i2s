@@ -21,10 +21,6 @@
         <uri>ssh://git@github.com/xcore/sc_i2c</uri>
         <version>2.1.0alpha4</version>
     </dependency>
-    <dependency repo = "xcommon">
-        <githash>cdcfc87c8c6047bf8d21f13222cbe9e84c6c5e01</githash>
-        <uri>ssh://git@github.com/xcore/xcommon</uri>
-    </dependency>
     <description>I2S Digital Audio Component</description>
     <docdir>doc</docdir>
     <docdir>app_slicekit_i2s_master_demo/doc</docdir>
