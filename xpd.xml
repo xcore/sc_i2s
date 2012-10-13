@@ -17,9 +17,9 @@
         </component>
     </components>
     <dependency repo = "sc_i2c">
-        <githash>407932265db62de56c8454c91235e7fc13366d9d</githash>
+        <githash>fbf184228ad30c7f8d8395000eff504dd4c7a2ec</githash>
         <uri>ssh://git@github.com/xcore/sc_i2c</uri>
-        <version>2.1.0alpha3</version>
+        <version>2.1.0alpha4</version>
     </dependency>
     <dependency repo = "xcommon">
         <githash>cdcfc87c8c6047bf8d21f13222cbe9e84c6c5e01</githash>
@@ -31,7 +31,6 @@
     <exclude_dir>app_i2s_master_demo_xai</exclude_dir>
     <exclude_dir>app_i2s_slave_example_xai</exclude_dir>
     <exclude_dir>module_i2s_slave</exclude_dir>
-    <exclude_dir>module_i2s_loopback</exclude_dir>
     <location>git@github.com:xcore/sc_i2s</location>
     <name>sc_i2s</name>
     <maintainer>davelxmos</maintainer>
@@ -49,5 +48,6 @@
     <vendor>XMOS</vendor>
     <xcore_repo>sc_i2s</xcore_repo>
     <xpd_version>1.0</xpd_version>
+    <xsoftip_exclude>module_i2s_loopback</xsoftip_exclude>
     <scope>example</scope>
 </xpd>
