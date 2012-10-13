@@ -44,6 +44,7 @@
     <release parenthash = "75dce936695c58b497ccc9ff871521a18cb78aff" version = "1.4.0alpha1" githash = "b7d8e47bfd9db8af63e7fe1ca46e0f9c457eb04b"></release>
     <release parenthash = "75c35d3ddd7dc190fb9a8cf5700577d05db04fe2" version = "1.4.0alpha2" githash = "879afe145a0d99bb44c98b1858c40748771aff7d"></release>
     <release parenthash = "879afe145a0d99bb44c98b1858c40748771aff7d" version = "1.4.0alpha3" githash = "39fb0afb6786111a3a93d5b242e0866dc5a6a57d"></release>
+    <release parenthash = "6e6204151c62b17bd2436e7d30ee4e2ed7a6a387" version = "1.4.0alpha4"></release>
     <subpartnumber>XM-002000-SM</subpartnumber>
     <vendor>XMOS</vendor>
     <xcore_repo>sc_i2s</xcore_repo>
