@@ -3,7 +3,7 @@
 #include <print.h>
 #include "app_global.h"
 #include "i2c.h"
-#include "xa_sk_audio_1v0.h"
+#include "xa_sk_audio_1v1.h"
 
 extern port p_i2c;
 extern out port p_gpio;

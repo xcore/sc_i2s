@@ -11,9 +11,6 @@
 /* Audio sample frequency (Hz) */
 #define SAMP_FREQ			            48000
 
-/* Audio Slice hardware version */
-#define AUDIO_SLICE_HW		            1
-
 /**************/
 /* Audio clocking defines */ 
 /* Master clock defines (Hz) */

@@ -1,6 +1,6 @@
 
 
-#include "xa_sk_audio_1v0.h"
+#include "xa_sk_audio_1v1.h"
 
 //::declaration
 on stdcore[1] : r_i2s i2s_resources =
