@@ -6,15 +6,18 @@ I2S Master Loopback Demonstration Application
 app_i2s_master_example_skc_l2 Quick Start Guide
 -----------------------------------------------
 
-This application is a simple demonstration that uses the I2S master module to implement a simple loopback in software.
+This application uses the I2S master module to demonstrate a simple loopback in software.
 
 It is designed to run on the XMOS L2 Slicekit Core board (XP-SKC-L2) in conjuction with an Audio Slice board (XS-SK-AUDIO).
 
 The functionality of the program is a follows:
 
     * Setup the audio hardware on the board as required, this includes
+
         * Master clock selection, CODEC setup (using module_i2c_master)
+
     * Provide a digital loopback from all ADC inputs to all DAC outputs (that is, ADC1 -> DAC1)
+
         * A ``processing()`` function accepts ADC data from the I2S master component and outputs the back to the I2S component as DAC data. 
 
 This application should provide a good basis for anyone looking to implement or prototype DSP style audio processing on an XCore processor.
@@ -24,7 +27,7 @@ Hardware Setup
 
 To setup the hardware:
 
-    #. Connect the XA-SK-AUDIO slice card to the XP-SKC-L2 Slicekit core board using the connector maked with [TODO INSERT SLOT SYMBOL]. 
+    #. Connect the XA-SK-AUDIO slice card to the XP-SKC-L2 Slicekit core board using the connector marked with the ``CIRCLE``. 
     #. Connect the XTAG-2 USB debug adaptor to the XP-SKC-L2 Slicekit core board (via the supplied adaptor board)
     #. Connect the XTAG-2 to host PC (as USB extension cable can be used if desired)
     #. Switch on the power supply to the XP-SKC-L2 Slicekit Core board
@@ -53,7 +56,7 @@ Run the Application
 
 Now that the application has been compiled, the next step is to run it on the Slicekit Core Board using the tools to load the application over JTAG (via the XTAG2 and Xtag Adaptor card) into the xCORE multicore microcontroller.
 
-   #. Click on the ``Run`` icon (the white arrow in the green circle).   A dialog will appear asking which device to cvonnect to. Select ``XMOS XTAG2``.
+   #. Click on the ``Run`` icon (the white arrow in the green circle).   A dialog will appear asking which device to connect to. Select ``XMOS XTAG2``.
    #. The application will now be running and providing a loopback functionality. Listen for the output via headphones or speakers. If the audio source is changed to input 3/4, the output will be available on output 3/4. There is no need to restart the application, just switch the audio connections over.
    #. Terminating the application will cause the loopback to stop.
 
