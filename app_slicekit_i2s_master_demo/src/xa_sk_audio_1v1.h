@@ -1,5 +1,5 @@
 
-/* Port Map Defines for XA-SK-AUDIO ("Audio Slice") 1v0 */
+/* Port Map Defines for XA-SK-AUDIO ("Audio Slice") 1v1 */
 #define PORT_I2S_DAC0	                XS1_PORT_1D
 #define PORT_I2S_DAC1                   XS1_PORT_1H
 #define PORT_I2S_ADC0                   XS1_PORT_1K
