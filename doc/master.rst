@@ -2,7 +2,7 @@
 Resource Requirements
 ----------------------
 
-This module is a single thread I2S bus master. It can transmit and receive audio data and drives the word clock and bit clock.
+This module is a single logical core I2S bus master. It can transmit and receive audio data and drives the word clock and bit clock.
 
 It requires the following resources:
 
@@ -22,11 +22,11 @@ This module can be used with any audio DAC/ADC/CODEC that supports the I2S stand
 Description/Operation
 --------------------
 
-The I2S master component runs in a single thread.  This thread takes the following parameters (see API for details):
+The I2S master component runs in a single logical core.  This task takes the following parameters (see API for details):
 
     - A structure containing the required hardware resources (i.e. clock-blocks and ports)
 
-    - A streaming channel end for communcation of data to/from the I2S thread
+    - A streaming channel end for communcation of data to/from the I2S core
 
     - A master clock to bit clock divide value (typically 2, 4 or 8)
 
@@ -44,7 +44,7 @@ And for 96kHz:
 
 If required, the function get_mclk_bclk_div() returns this value given a sample freqency and master clock frequency.
 
-On calling the I2S master thread it's first task is to setup the hardware resources into a configuration suitable for I2S operation.
+On calling the I2S master task it's first task is to setup the hardware resources into a configuration suitable for I2S operation.
 
 The data, LRCLK and BCLK are single bit ports setup as "buffered" ports with a transfer width of 32. This means that every input/output operation causes 32 bits of data to be transferred.
 
@@ -109,7 +109,7 @@ This is extended to operate on various boards though app_i2s_master_example_skc_
   :start-after: //::main program
   :end-before: //::
 
-The function main() runs two threads, one which calls functions to setup the audio hardware on the board then finally the i2s_master() function.  The other calls a simple processing function.  This function simply inputs ADC data from the streaming channel and loops sends it back as ADC data over the streaming channel for all channels.
+The function main() runs two functions on logical cores, one ehich calls functions to setup the audio hardware on the board then finally the i2s_master() function.  The other calls a simple processing function.  This function simply inputs ADC data from the streaming channel and loops sends it back as ADC data over the streaming channel for all channels.
 
 main.xc includes the file app_global which includes build parameters for the specific app such as master clock freqencies, sample rate etc.
 

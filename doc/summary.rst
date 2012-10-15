@@ -29,7 +29,7 @@ Module Features
 Resource Requirements
 ----------------------
 
-This module is a single thread I2S bus master. It can transmit and receive audio data and drives the word clock and bit clock.
+This module is a single logical core I2S bus master. It can transmit and receive audio data and drives the word clock and bit clock.
 
 It requires the following resources:
 
