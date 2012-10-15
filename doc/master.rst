@@ -109,7 +109,7 @@ This is extended to operate on various boards though app_i2s_master_example_skc_
   :start-after: //::main program
   :end-before: //::
 
-The function main() runs two functions on logical cores, one ehich calls functions to setup the audio hardware on the board then finally the i2s_master() function.  The other calls a simple processing function.  This function simply inputs ADC data from the streaming channel and loops sends it back as ADC data over the streaming channel for all channels.
+The function main() runs two functions on logical cores, one which calls functions to setup the audio hardware on the board then finally the i2s_master() function.  The other calls a simple processing function.  This function simply inputs ADC data from the streaming channel and loops sends it back as ADC data over the streaming channel for all channels.
 
 main.xc includes the file app_global which includes build parameters for the specific app such as master clock freqencies, sample rate etc.
 
