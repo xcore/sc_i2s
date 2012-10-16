@@ -1,6 +1,6 @@
 #include "i2s_master.h"
 
-void processing(streaming chanend c)
+void loopback(streaming chanend c)
 {
     /* Audio sample buffers */
     unsigned sampsAdc[I2S_MASTER_NUM_CHANS_ADC];

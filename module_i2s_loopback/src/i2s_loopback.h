@@ -1,5 +1,5 @@
 
-#ifndef _PROCESSING_H_
-#define _PROCESSING_H_
-void processing(streaming chanend c);
+#ifndef _I2S_LOOPBACK_H_
+#define _I2S_LOOPBACK_H_
+void loopback(streaming chanend c);
 #endif

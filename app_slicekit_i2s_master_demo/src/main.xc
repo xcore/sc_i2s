@@ -4,13 +4,7 @@
 // LICENSE.txt and at <http://github.xcore.com/>
 
 #include <platform.h>
-#include <xclib.h>
-#include <assert.h>
-#include <print.h>
-#include <stdlib.h>
-#include "i2c.h"
 #include "i2s_loopback.h"
-
 #include "i2s_master.h"
 #include "app_global.h"
 #include "ports.h"
@@ -35,9 +29,10 @@ int main()
             i2s_master(i2s_resources, c_data, mclk_bclk_div);
         }
 
-        on stdcore[1] : processing(c_data);
+        on stdcore[1] : loopback(c_data);
 
     }
    return 0;
 }
 //::
+
