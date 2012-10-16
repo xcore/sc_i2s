@@ -6,18 +6,18 @@ TARGET = SLICEKIT-L2
 # The APP_NAME variable determines the name of the final .xe file. It should
 # not include the .xe postfix. If left blank the name will default to
 # the project name
-APP_NAME = app_slicekit_bmp_demo
+APP_NAME = app_slicekit_i2s_master_demo
 
 # The USED_MODULES variable lists other module used by the application.
-USED_MODULES = module_i2c_single_port module_i2s_master
+USED_MODULES = module_i2c_single_port module_i2s_loopback module_i2s_master
 
 # The flags passed to xcc when building the application
 # You can also set the following to override flags for a particular language:
 # XCC_XC_FLAGS, XCC_C_FLAGS, XCC_ASM_FLAGS, XCC_CPP_FLAGS
 # If the variable XCC_MAP_FLAGS is set it overrides the flags passed to
 # xcc for the final link (mapping) stage.
-XCC_FLAGS_Debug = -O0 -g
-XCC_FLAGS_Release = -O2 -g
+XCC_FLAGS_Debug = -O3 -g -Wall
+XCC_FLAGS_Release = -O3 -Wall
 
 # The VERBOSE variable, if set to 1, enables verbose output from the make system.
 VERBOSE = 0
