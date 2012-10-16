@@ -17,9 +17,8 @@
         </component>
     </components>
     <dependency repo = "sc_i2c">
-        <githash>576de5f72f10954ce0eed83acb418890ed636bb8</githash>
+        <githash>69055c9531de5f88b170d997db32f0b9f9663d5a</githash>
         <uri>ssh://git@github.com/xcore/sc_i2c</uri>
-        <version>2.1.0rc0</version>
     </dependency>
     <description>I2S Digital Audio Component</description>
     <docdir>doc</docdir>
@@ -43,7 +42,8 @@
     <release parenthash = "6e6204151c62b17bd2436e7d30ee4e2ed7a6a387" version = "1.4.0alpha4" githash = "d9e0c124139a7855f6cd4768f1157707051e95a5"></release>
     <release parenthash = "23edccbfcf1779c07555b07b3d3faac5154f2f52" version = "1.4.0alpha5" githash = "a0c27338e24be06413370263021c56834d55dcf8"></release>
     <release parenthash = "a0c27338e24be06413370263021c56834d55dcf8" version = "1.4.0alpha6" githash = "68d56ec525732bcc6596f7a93e5ff6b274ea1bef"></release>
-    <release parenthash = "7a7e35dfeb52a579c1f16c806bcb38d49611b1bb" version = "1.4.0rc0"></release>
+    <release parenthash = "7a7e35dfeb52a579c1f16c806bcb38d49611b1bb" version = "1.4.0rc0" githash = "fc4257d58dee6cfacd4b17a49c0126b0558eee2b"></release>
+    <release parenthash = "b933056a9b8308ceef2b5c8f614c41f9ad590e71" version = "1.4.0rc1"></release>
     <subpartnumber>XM-002000-SM</subpartnumber>
     <vendor>XMOS</vendor>
     <xcore_repo>sc_i2s</xcore_repo>
