@@ -17,15 +17,15 @@ int main()
 {
    streaming chan c_data;
 
-   par 
+   par
     {
-        on stdcore[1] : 
+        on stdcore[1] :
         {
             unsigned mclk_bclk_div = MCLK_FREQ/(SAMP_FREQ * 64);
             audio_hw_init(mclk_bclk_div);
 
-            audio_hw_config(SAMP_FREQ);           
-            
+            audio_hw_config(SAMP_FREQ);
+
             i2s_master(i2s_resources, c_data, mclk_bclk_div);
         }
 

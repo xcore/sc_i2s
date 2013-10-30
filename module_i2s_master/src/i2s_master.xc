@@ -41,7 +41,7 @@ void i2s_master_loop(in buffered port:32 p_i2s_adc[], out buffered port:32 p_i2s
 {
     unsigned sampsAdc[I2S_MASTER_NUM_CHANS_ADC];
     unsigned sampsDac[I2S_MASTER_NUM_CHANS_DAC];
- 
+
     /* Init sample buffers */
     for (int i = 0; i < I2S_MASTER_NUM_CHANS_ADC; i++)
     {
@@ -51,7 +51,7 @@ void i2s_master_loop(in buffered port:32 p_i2s_adc[], out buffered port:32 p_i2s
     {
         sampsDac[i] = 0;
     }
-    
+
     /* Lets do some I2S.. */
     // inputs and outputs are 32 bits at a time
     // assuming clock block is reset - initial time is 0
@@ -59,12 +59,12 @@ void i2s_master_loop(in buffered port:32 p_i2s_adc[], out buffered port:32 p_i2s
     // input is always "up to" given time, output is always "starting from" given time
 	// outputs will be aligned to WCK + 1 (first output at time 32, WCK at time 31)
 	// inputs will also be aligned to WCK + 1 (first input up to time 63, WCK up to time 62)
-    for (int i = 0; i < I2S_MASTER_NUM_PORTS_DAC; i++) 
+    for (int i = 0; i < I2S_MASTER_NUM_PORTS_DAC; i++)
     {
         p_i2s_dac[i] @ 32 <: 0;
     }
-  
-    for (int i = 0; i < I2S_MASTER_NUM_PORTS_ADC; i++) 
+
+    for (int i = 0; i < I2S_MASTER_NUM_PORTS_ADC; i++)
     {
         asm("setpt res[%0], %1" :: "r"(p_i2s_adc[i]), "r"(63));
     }
@@ -75,7 +75,7 @@ void i2s_master_loop(in buffered port:32 p_i2s_adc[], out buffered port:32 p_i2s
     bck_32_ticks(p_bclk, divide);
 
 #pragma unsafe arrays
-    while (1) 
+    while (1)
     {
         int p = 0;
 
@@ -83,19 +83,19 @@ void i2s_master_loop(in buffered port:32 p_i2s_adc[], out buffered port:32 p_i2s
 #pragma loop unroll
         for (int i = 0; i < I2S_MASTER_NUM_CHANS_ADC; i++)
             c <: sampsAdc[i];
-       
+
         /* Receive DAC samples from channel... */
 #pragma loop unroll
         for (int i = 0; i < I2S_MASTER_NUM_CHANS_DAC; i++)
             c :> sampsDac[i];
-        
+
         /* Output next DAC audio data for "Left" or "even" channels to I2S data ports.
          * Samples expected to come from channel end as left-aligned
          */
         p = 0;
 #pragma loop unroll
-        for (int i = 0; i < I2S_MASTER_NUM_CHANS_DAC; i+=2) 
-        { 
+        for (int i = 0; i < I2S_MASTER_NUM_CHANS_DAC; i+=2)
+        {
             p_i2s_dac[p++] <: bitrev(sampsDac[i]);
         }
 
@@ -106,26 +106,26 @@ void i2s_master_loop(in buffered port:32 p_i2s_adc[], out buffered port:32 p_i2s
          */
         p = 0;
 #pragma loop unroll
-        for (int i = 0; i < I2S_MASTER_NUM_CHANS_ADC; i+=2) 
+        for (int i = 0; i < I2S_MASTER_NUM_CHANS_ADC; i+=2)
         {
             int x;
 		    asm("in %0, res[%1]" : "=r"(x)  : "r"(p_i2s_adc[p++]));
             sampsAdc[i] = bitrev(x);
         }
-    
+
         /* Output LR clock value to port */
         p_lrclk <: 0;
-        
-        /* drive bit clock. This will clock out LRClk and DAC data from ports and clock in next 
+
+        /* drive bit clock. This will clock out LRClk and DAC data from ports and clock in next
          * ADC data into ports
          */
         bck_32_ticks(p_bclk, divide);
-        
+
         /* Output "right" (or "odd") channel DAC data to DAC ports */
         p = 0;
 #pragma loop unroll
-        for (int i = 1; i < I2S_MASTER_NUM_CHANS_DAC; i+=2) 
-        { 
+        for (int i = 1; i < I2S_MASTER_NUM_CHANS_DAC; i+=2)
+        {
             p_i2s_dac[p++] <: bitrev(sampsDac[i]);
         }
 
@@ -135,7 +135,7 @@ void i2s_master_loop(in buffered port:32 p_i2s_adc[], out buffered port:32 p_i2s
         // hence we need inline IN too
         p = 0;
 #pragma loop unroll
-        for (int i = 1; i < I2S_MASTER_NUM_CHANS_ADC; i+=2) 
+        for (int i = 1; i < I2S_MASTER_NUM_CHANS_ADC; i+=2)
         {
             int x;
 		    asm("in %0, res[%1]" : "=r"(x)  : "r"(p_i2s_adc[p++]));
@@ -159,7 +159,7 @@ void i2s_master(r_i2s &r_i2s, streaming chanend c_data, unsigned mclk_bclk_div)
 {
     if(mclk_bclk_div == 1)
     {
-        // TODO 
+        // TODO
     }
     else
     {
@@ -174,21 +174,21 @@ void i2s_master(r_i2s &r_i2s, streaming chanend c_data, unsigned mclk_bclk_div)
 
         // WCK and all data ports clocked off clock block 2
         set_port_clock(r_i2s.wck, r_i2s.cb2);
-    
-        for (int i = 0; i < I2S_MASTER_NUM_PORTS_ADC; i++) 
+
+        for (int i = 0; i < I2S_MASTER_NUM_PORTS_ADC; i++)
         {
             set_port_clock(r_i2s.din[i], r_i2s.cb2);
         }
-        for (int i = 0; i < I2S_MASTER_NUM_PORTS_DAC; i++) 
+        for (int i = 0; i < I2S_MASTER_NUM_PORTS_DAC; i++)
         {
             set_port_clock(r_i2s.dout[i], r_i2s.cb2);
         }
-    
+
 
         // Start clock blocks after configuration
         start_clock(r_i2s.cb1);
         start_clock(r_i2s.cb2);
- 
+
     }
 
     // Run I2S i/o loop

@@ -24,8 +24,8 @@
 #warning I2S_MASTER_NUM_CHANS_ADC not defined, using 2 (i.e. stereo)
 #endif
 
-#ifndef I2S_MASTER_NUM_CHANS_DAC 
-/** Number of DAC audio channels 
+#ifndef I2S_MASTER_NUM_CHANS_DAC
+/** Number of DAC audio channels
  */
 #define I2S_MASTER_NUM_CHANS_DAC 2
 #warning I2S_MASTER_NUM_CHANS_DAC not defined, using 2 (i.e. stereo)
@@ -73,7 +73,7 @@ typedef struct i2s_resources {
  *
  * \param r_i2s          Structure to configure the i2s_master
  *
- * \param c_data         Streaming channel for sample data. 
+ * \param c_data         Streaming channel for sample data.
  *
  *                       First samples are exchanged over the channel in the following order:
  *                       Channel 0 (left), Channel 1 (right) ... Channel I2S_MASTER_NUM_CHAN_ADC-1, Channel I2S_MASTER_NUM_CHAN_ADC
@@ -81,12 +81,12 @@ typedef struct i2s_resources {
  *                       Samples should then be sent in the following order:
  *                       Channel 0 (left), Channel 1 (right) ... Channel I2S_MASTER_NUM_CHAN_DAC-1, Channel I2S_MASTER_NUM_CHAN_DAC
  *
- * \param mclk_bclk_div Divide required for Master clock to Bit Clock frequency.  Supported values currently 2, 4, 8.                       
+ * \param mclk_bclk_div Divide required for Master clock to Bit Clock frequency.  Supported values currently 2, 4, 8.
  */
 void i2s_master(r_i2s &r_i2s, streaming chanend c_data, unsigned mclk_bclk_div);
 
-/** 
- * 
+/**
+ *
  * \param sampFreq      Desired sample frequency
  *
  * \param mClkFreq      Master clock frequency
