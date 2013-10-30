@@ -5,7 +5,7 @@ void loopback(streaming chanend c)
     /* Audio sample buffers */
     unsigned sampsAdc[I2S_MASTER_NUM_CHANS_ADC];
     unsigned sampsDac[I2S_MASTER_NUM_CHANS_DAC];
-    
+
     /* Samps innit */
     for (int i = 0; i < I2S_MASTER_NUM_CHANS_ADC; i++)
     {
@@ -17,20 +17,20 @@ void loopback(streaming chanend c)
     }
 
     while(1)
-    { 
+    {
         /* Receive ADC samples from audio thread */
 #pragma loop unroll
         for (int i = 0; i < I2S_MASTER_NUM_CHANS_ADC; i++)
         {
-            c :> sampsAdc[i]; 
+            c :> sampsAdc[i];
         }
 
 #pragma loop unroll
         /* Send out DAC samples */
         for (int i = 0; i < I2S_MASTER_NUM_CHANS_DAC; i++)
         {
-            c <: sampsDac[i]; 
-        } 
+            c <: sampsDac[i];
+        }
 
         /* Do some processing - currently just loop back ADC to DAC on all channels */
         for(int i = 0; i < I2S_MASTER_NUM_CHANS_DAC; i++)
@@ -41,5 +41,5 @@ void loopback(streaming chanend c)
             }
         }
     }
-}  
+}
 

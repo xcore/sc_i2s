@@ -12,7 +12,7 @@
 #define SAMP_FREQ			            48000
 
 /**************/
-/* Audio clocking defines */ 
+/* Audio clocking defines */
 /* Master clock defines (Hz) */
 #define MCLK_FREQ_441                   (512*44100)   /* 44.1, 88.2 etc */
 #define MCLK_FREQ_48                    (512*48000)   /* 48, 96 etc */
