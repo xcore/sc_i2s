@@ -1,5 +1,5 @@
-Programming Guide
-=================
+Programming guide
+-----------------
 
 The I2S master component runs in a single logical core.  This logical core takes the following parameters (see API for details):
 
@@ -51,9 +51,9 @@ Once the ports have been setup the main I2S I/O loop is called:
 
 
 Usage Example
-=============
+-------------
 
-The app_i2s_master_example_skc_l2 example application implements a audio basic loopback on all channels (ADC to DAC).  This includes a main.xc with the call to I2S master, the loopback code and so on. These include board-support resources and functionalilty such as XN files, CODEC configuration, clocking configuration, port defines etc and most importantly a Makefile.
+The ``I2S Master sliceKIT Loopback Demo`` example application implements a audio basic loopback on all channels (ADC to DAC).  This includes a main.xc with the call to I2S master, the loopback code and so on. These include board-support resources and functionalilty such as XN files, CODEC configuration, clocking configuration, port defines etc and a Makefile.
 
 .. literalinclude:: module_i2s_master_example/main.xc
   :start-after: //::main program
@@ -68,15 +68,6 @@ The app_* folders contain implementations of audio_hw_init() and audio_hw_config
 .. literalinclude:: app_i2s_master_example_skc_l2/src/ports.h
   :start-after: //::declaration
   :end-before: //::
-
-
-app_i2s_master_example_skc_l2
------------------------------
-
-The example application is designed to run on the XP-SKC-L2 (L2 Slice Kit Core) Board in conjunction with a Audio Slice board (XA-SK-AUDIO).
-
-
-
 
 
 

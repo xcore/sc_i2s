@@ -1,4 +1,4 @@
-I2S Master Slicekit Loopback Demo
+I2S Master sliceKIT Loopback Demo
 =================================
 
 :scope: Example

@@ -1,8 +1,8 @@
 I2S Digital Audio Master Component
 ==================================
 
-I2S Overview
-------------
+Overview
+--------
 
 I2S (also known as IIS, Inter-IC Sound or Integrated Interchip Sound) is a serial bus interface for digital audio transport.
 
@@ -18,10 +18,10 @@ Additionally a Master Clock line is used (typically 128, 256 or 512 x LRCLK.
 
 A typical usage for this is transport of PCM audio samples to/from an external DAC/ADC or CODEC.
 
-Module Features
----------------
+Features
+--------
 
-   * Implements a "master" (where the XMOS chip provides LRCLK and BCLK to the CODEC). A "slave" version  (where the CODEC provides LRCLK and BCLK to the XMOS chip) modes will be added soon.
+   * Implements a "master" (where the xCORE provides LRCLK and BCLK to the CODEC). A "slave" version  (where the CODEC provides LRCLK and BCLK to the XMOS chip) modes are forthcoming.
    * Input and output multiple stereo audio streams on multiple ports at sample frequencies up to 192 KHz
    * Audio samples are sent to and received from the client via a streaming channel
 
@@ -40,8 +40,8 @@ It requires the following resources:
    - approx 0.5 kB memory 
 
 Performance
-+++++++++++
+-----------
 
 The performance the module can achieve depends on the number on the number of channels served, the sample frequency desired and the master clock frequency (or divide) used. 
 
-Currently the component is expected to achieve 10 channels input and output at 192kHz (based on a 512*48000Hz master clock)
+Currently the component can achieve 10 channels input and output at 192kHz (based on a 512*48000Hz master clock)
