@@ -1,9 +1,13 @@
 I2S  Components Change Log
 =========================
 
+1.4.3
+-----
+   * update dependencies
+
 1.4.2
 -----
-   * Update dependencies.
+   * Update dependencies
    
 1.4.1
 -----
