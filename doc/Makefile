@@ -1,7 +1,7 @@
 REPO=../../sc_i2s
 SPHINX_PROJECT_NAME=I2S Component
 VERSION=1.2.0
-DOXYGEN_DIRS=$(REPO)/module_i2s_master $(REPO)/module_i2s_slave
+DOXYGEN_DIRS=$(REPO)/module_i2s_master 
 SOURCE_INCLUDE_DIRS=$(REPO)
 XDOC_DIR ?= ../../xdoc
 include $(XDOC_DIR)/Makefile.inc
