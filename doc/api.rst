@@ -12,7 +12,7 @@ Symbolic constants
 Structures
 ----------
 
-.. doxygenstruct:: r_i2s
+.. doxygenstruct:: i2s_resources
 
 Functions
 ---------

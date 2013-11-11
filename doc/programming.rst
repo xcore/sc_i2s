@@ -55,7 +55,7 @@ Usage Example
 
 The ``I2S Master sliceKIT Loopback Demo`` example application implements a audio basic loopback on all channels (ADC to DAC).  This includes a main.xc with the call to I2S master, the loopback code and so on. These include board-support resources and functionalilty such as XN files, CODEC configuration, clocking configuration, port defines etc and a Makefile.
 
-.. literalinclude:: module_i2s_master_example/main.xc
+.. literalinclude:: app_slicekit_i2s_master_demo/src/main.xc
   :start-after: //::main program
   :end-before: //::
 
@@ -65,7 +65,7 @@ main.xc includes the file app_global which includes build parameters for the spe
 
 The app_* folders contain implementations of audio_hw_init() and audio_hw_config().  In all cases i2s_master.h should be included and the structure i2s_master defined.
 
-.. literalinclude:: app_i2s_master_example_skc_l2/src/ports.h
+.. literalinclude:: app_slicekit_i2s_master_demo/src/ports.h
   :start-after: //::declaration
   :end-before: //::
 
