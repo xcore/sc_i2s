@@ -1,19 +1,19 @@
 <?xml version="1.0" ?>
 <xpd>
     <components>
-        <component description = "Uses the I2S master in loopback mode to demonstrate usage of this component" type = "demoCode" scope = "Example" path = "app_slicekit_i2s_master_demo" local = "false" id = "app_slicekit_i2s_master_demo" name = "I2S Master Slicekit Loopback Demo">
-            <board>XA-SK-AUDIO</board>
-            <componentDependency repo = "git://github.com/xcore/sc_i2c" version = "2.2.1">module_i2c_single_port</componentDependency>
-            <componentDependency repo = "git://github.com/xcore/sc_i2s" version = "1.4.2">module_i2s_master</componentDependency>
-            <componentDependency repo = "git://github.com/xcore/sc_i2s" version = "1.4.2">module_i2s_loopback</componentDependency>
-            <keyword>Audio</keyword>
-            <keyword>I2S</keyword>
-        </component>
         <component name = "I2S Master Audio Driver" type = "component" buildresults_path = "module_i2s_master/.module_i2s_master.buildinfo" scope = "General Use" path = "module_i2s_master" metainfo_path = "module_i2s_master/module_i2s_master.metainfo" local = "false" id = "module_i2s_master" description = "Component for driving Multichannel Audio I2S (Input and Output) with Codec as Slave">
             <board>XA-SK-AUDIO</board>
             <keyword>Audio</keyword>
             <keyword>I2S</keyword>
             <keyword>codec</keyword>
+        </component>
+        <component description = "Uses the I2S master in loopback mode to demonstrate usage of this component" type = "demoCode" scope = "Example" path = "app_slicekit_i2s_master_demo" local = "false" id = "app_slicekit_i2s_master_demo" name = "I2S Master Slicekit Loopback Demo">
+            <board>XA-SK-AUDIO</board>
+            <componentDependency repo = "git://github.com/xcore/sc_i2s" version = "1.4.2">module_i2s_loopback</componentDependency>
+            <componentDependency repo = "git://github.com/xcore/sc_i2c" version = "2.2.1">module_i2c_single_port</componentDependency>
+            <componentDependency repo = "git://github.com/xcore/sc_i2s" version = "1.4.2">module_i2s_master</componentDependency>
+            <keyword>Audio</keyword>
+            <keyword>I2S</keyword>
         </component>
     </components>
     <dependency repo = "sc_i2c">
@@ -47,7 +47,8 @@
     <release parenthash = "b933056a9b8308ceef2b5c8f614c41f9ad590e71" version = "1.4.0rc1" githash = "58c4623e50f03572e0e9ea435cd5c6a8ac01d3cf"></release>
     <release parenthash = "546d8eda58d19389607456d2fe8e6d7255d48916" version = "1.4.1alpha0" githash = "e8f03de2c99c9b8ca787be7c3bc68432725621e3"></release>
     <release parenthash = "3e0d04949182b1d63f2047b1d5a6ef7250fb5dd6" version = "1.4.2rc0" githash = "5e5f08ba31e669058eda99d21fa3910da502ad00"></release>
-    <release parenthash = "0b54d7349f45c4834f64207a7ac4891434b64a79" version = "1.4.2rc1"></release>
+    <release parenthash = "0b54d7349f45c4834f64207a7ac4891434b64a79" version = "1.4.2rc1" githash = "3cbb42ab78f8e3e33056eb7fc5f43902f3cbfe3e"></release>
+    <release parenthash = "844f67d89c7c047fa01053d95df9e4d4872a141f" version = "1.4.2rc2"></release>
     <subpartnumber>XM-002000-SM</subpartnumber>
     <vendor>XMOS</vendor>
     <version_defines></version_defines>
