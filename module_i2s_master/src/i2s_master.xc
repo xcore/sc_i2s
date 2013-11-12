@@ -109,7 +109,7 @@ void i2s_master_loop(in buffered port:32 p_i2s_adc[], out buffered port:32 p_i2s
         for (int i = 0; i < I2S_MASTER_NUM_CHANS_ADC; i+=2)
         {
             int x;
-		    asm("in %0, res[%1]" : "=r"(x)  : "r"(p_i2s_adc[p++]));
+            asm("in %0, res[%1]" : "=r"(x)  : "r"(p_i2s_adc[p++]));
             sampsAdc[i] = bitrev(x);
         }
 
@@ -138,14 +138,14 @@ void i2s_master_loop(in buffered port:32 p_i2s_adc[], out buffered port:32 p_i2s
         for (int i = 1; i < I2S_MASTER_NUM_CHANS_ADC; i+=2)
         {
             int x;
-		    asm("in %0, res[%1]" : "=r"(x)  : "r"(p_i2s_adc[p++]));
+            asm("in %0, res[%1]" : "=r"(x)  : "r"(p_i2s_adc[p++]));
             sampsAdc[i] = bitrev(x);
         }
 
-        // drive word clock
+        /* Output LR clock to port */
         p_lrclk <: 0xffffffff;
 
-        // drive bit clock
+        /* drive bit clock */
         bck_32_ticks(p_bclk, divide);
     }
 }
