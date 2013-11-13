@@ -1,4 +1,3 @@
-
 #include <xs1.h>
 #include <print.h>
 #include "app_global.h"
@@ -67,6 +66,7 @@ void audio_hw_config(unsigned samFreq)
     /* Set power down bit in the CODEC over I2C */
     IIC_REGWRITE(CODEC_DEV_ID_ADDR, 0x01);
 
+#if 0
     /* Read CODEC device ID to make sure everything is OK */
     IIC_REGREAD(CODEC_DEV_ID_ADDR, data);
 
@@ -76,6 +76,7 @@ void audio_hw_config(unsigned samFreq)
         printstr("Unexpected CODEC Device ID, expected 0xC, got ");
         printhex(codec_dev_id);
     }
+#endif
 
     /* Now set all registers as we want them :
     Mode Control Reg:
