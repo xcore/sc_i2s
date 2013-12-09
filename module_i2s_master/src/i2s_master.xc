@@ -59,16 +59,18 @@ void i2s_master_loop(in buffered port:32 p_i2s_adc[], out buffered port:32 p_i2s
     // input is always "up to" given time, output is always "starting from" given time
 	// outputs will be aligned to WCK + 1 (first output at time 32, WCK at time 31)
 	// inputs will also be aligned to WCK + 1 (first input up to time 63, WCK up to time 62)
+
     for (int i = 0; i < I2S_MASTER_NUM_PORTS_DAC; i++)
     {
-        p_i2s_dac[i] @ 32 <: 0;
+        p_i2s_dac[i] @ 64 <: 0;
     }
 
     for (int i = 0; i < I2S_MASTER_NUM_PORTS_ADC; i++)
     {
         asm("setpt res[%0], %1" :: "r"(p_i2s_adc[i]), "r"(63));
     }
-	p_lrclk @ 31 <: 0;
+
+    p_lrclk @ 31 <: 0;
 
     // clocks for previous outputs / inputs
     bck_32_ticks(p_bclk, divide);
@@ -89,6 +91,25 @@ void i2s_master_loop(in buffered port:32 p_i2s_adc[], out buffered port:32 p_i2s
         for (int i = 0; i < I2S_MASTER_NUM_CHANS_DAC; i++)
             c :> sampsDac[i];
 
+        // input audio data
+        // will be output to channel end as left-aligned
+        // compiler would insert SETC FULL on DIN input, because it doesn't know about inline SETPT above
+        // hence we need inline IN too
+        p = 0;
+#pragma loop unroll
+        for (int i = 0; i < I2S_MASTER_NUM_CHANS_ADC; i+=2)
+        {
+            int x;
+            asm("in %0, res[%1]" : "=r"(x)  : "r"(p_i2s_adc[p++]));
+            sampsAdc[i] = bitrev(x);
+        }
+
+        /* Output LR clock to port */
+        p_lrclk <: 0xffffffff;
+
+        /* drive bit clock */
+        bck_32_ticks(p_bclk, divide);
+
         /* Output next DAC audio data for "Left" or "even" channels to I2S data ports.
          * Samples expected to come from channel end as left-aligned
          */
@@ -106,7 +127,7 @@ void i2s_master_loop(in buffered port:32 p_i2s_adc[], out buffered port:32 p_i2s
          */
         p = 0;
 #pragma loop unroll
-        for (int i = 0; i < I2S_MASTER_NUM_CHANS_ADC; i+=2)
+        for (int i = 1; i < I2S_MASTER_NUM_CHANS_ADC; i+=2)
         {
             int x;
             asm("in %0, res[%1]" : "=r"(x)  : "r"(p_i2s_adc[p++]));
@@ -129,24 +150,6 @@ void i2s_master_loop(in buffered port:32 p_i2s_adc[], out buffered port:32 p_i2s
             p_i2s_dac[p++] <: bitrev(sampsDac[i]);
         }
 
-        // input audio data
-        // will be output to channel end as left-aligned
-        // compiler would insert SETC FULL on DIN input, because it doesn't know about inline SETPT above
-        // hence we need inline IN too
-        p = 0;
-#pragma loop unroll
-        for (int i = 1; i < I2S_MASTER_NUM_CHANS_ADC; i+=2)
-        {
-            int x;
-            asm("in %0, res[%1]" : "=r"(x)  : "r"(p_i2s_adc[p++]));
-            sampsAdc[i] = bitrev(x);
-        }
-
-        /* Output LR clock to port */
-        p_lrclk <: 0xffffffff;
-
-        /* drive bit clock */
-        bck_32_ticks(p_bclk, divide);
     }
 }
 
