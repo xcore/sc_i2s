@@ -105,7 +105,7 @@ void i2s_master_loop(in buffered port:32 p_i2s_adc[], out buffered port:32 p_i2s
         }
 
         /* Output LR clock to port */
-        p_lrclk <: 0xffffffff;
+        p_lrclk <: 0;
 
         /* drive bit clock */
         bck_32_ticks(p_bclk, divide);
@@ -135,7 +135,7 @@ void i2s_master_loop(in buffered port:32 p_i2s_adc[], out buffered port:32 p_i2s
         }
 
         /* Output LR clock value to port */
-        p_lrclk <: 0;
+        p_lrclk <: 0xffffffff;
 
         /* drive bit clock. This will clock out LRClk and DAC data from ports and clock in next
          * ADC data into ports
