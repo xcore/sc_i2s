@@ -10,7 +10,7 @@ sc_i2s Change Log
                   syncs with the channel I/O.
   * Changes to dependencies:
 
-    - sc_i2c: 2.2.1rc0 -> 2.4.1rc1
+    - sc_i2c: 2.2.1rc0 -> 2.4.1rc0
 
       + module_i2c_simple header-file comments updated to correctly reflect API
       + module_i2c_simple can now be built with support to send repeated starts and retry reads and writes NACKd by slave
