@@ -1,7 +1,7 @@
 I2S Digital Audio Component
 ...........................
 
-:Latest release: 1.4.3rc0
+:Latest release: 1.5.0rc0
 :Maintainer: XMOS
 :Description: I2S Digital Audio Component
 
@@ -28,4 +28,5 @@ Required software (dependencies)
 ================================
 
   * sc_i2c (ssh://git@github.com/xcore/sc_i2c)
+  * sc_util (git://github.com/xcore/sc_util)
 
