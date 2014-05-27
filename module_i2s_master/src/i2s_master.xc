@@ -74,6 +74,7 @@ void i2s_master_loop(in buffered port:32 p_i2s_adc[], out buffered port:32 p_i2s
 
     // clocks for previous outputs / inputs
     bck_32_ticks(p_bclk, divide);
+    p_lrclk <: 0;
     bck_32_ticks(p_bclk, divide);
 
 #pragma unsafe arrays
